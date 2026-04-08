@@ -1,0 +1,82 @@
+---
+import type { Persona } from "../../data/types";
+
+interface Props {
+  estrutura: NonNullable<Persona["sections"]["estrutura"]>;
+  bgColor?: "default" | "alt";
+}
+
+const { estrutura, bgColor = "default" } = Astro.props;
+const sectionBg = bgColor === "alt" ? "bg-[var(--color-bg-alt)]" : "bg-[var(--color-bg)]";
+---
+
+<section class:list={["py-20 md:py-28", sectionBg]} id="estrutura">
+  <div class="mx-auto px-6 max-w-6xl">
+    <div class="text-center mb-12">
+      <p class="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-4">Estrutura</p>
+      <h2 class="font-[var(--font-heading)] text-3xl md:text-4xl font-semibold text-[var(--color-text-heading)]">{estrutura.sectionTitle}</h2>
+      {estrutura.sectionSubtitle && (
+        <p class="text-[var(--color-muted)] mt-4 max-w-2xl mx-auto">{estrutura.sectionSubtitle}</p>
+      )}
+    </div>
+
+    {/* Desktop: Bento grid (1 large left + 2 smaller right) */}
+    <div class="hidden md:grid grid-cols-3 grid-rows-2 gap-3 stagger" style="height: 480px;">
+      {estrutura.items.map((item, i) => (
+        <div
+          class:list={[
+            "relative overflow-hidden group",
+            i === 0 ? "col-span-2 row-span-2" : ""
+          ]}
+          style="border-radius: var(--radius-lg)"
+        >
+          <img
+            src={item.image}
+            alt={item.title}
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-5">
+            <p class="text-white font-semibold text-lg">{item.title}</p>
+            <p class="text-white/70 text-sm mt-1">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* Mobile: Horizontal carousel */}
+    <div class="flex md:hidden gap-4 overflow-x-auto scroll-snap-x pb-4 -mx-6 px-6" style="-webkit-overflow-scrolling: touch; scrollbar-width: none;">
+      {estrutura.items.map((item) => (
+        <div
+          class="relative overflow-hidden shrink-0 snap-start"
+          style="width: 80vw; height: 280px; border-radius: var(--radius-lg);"
+        >
+          <img
+            src={item.image}
+            alt={item.title}
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-5">
+            <p class="text-white font-semibold text-lg">{item.title}</p>
+            <p class="text-white/70 text-sm mt-1">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .scroll-snap-x {
+    scroll-snap-type: x mandatory;
+  }
+  .scroll-snap-x::-webkit-scrollbar {
+    display: none;
+  }
+  .snap-start {
+    scroll-snap-align: start;
+  }
+</style>

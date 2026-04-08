@@ -1,0 +1,79 @@
+---
+import type { Persona } from "../../data/types";
+
+interface Props {
+  equipe: NonNullable<Persona["sections"]["equipe"]>;
+  bgColor?: "default" | "alt";
+}
+
+const { equipe, bgColor = "default" } = Astro.props;
+const sectionBg = bgColor === "alt" ? "bg-[var(--color-bg-alt)]" : "bg-[var(--color-bg)]";
+---
+
+<section class:list={["py-20 md:py-28", sectionBg]} id="equipe">
+  <div class="mx-auto px-6 max-w-6xl">
+    <div class="text-center mb-12">
+      <p class="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-4">Equipe</p>
+      <h2 class="font-[var(--font-heading)] text-3xl md:text-4xl font-semibold text-[var(--color-text-heading)]">{equipe.sectionTitle}</h2>
+      {equipe.sectionSubtitle && (
+        <p class="text-[var(--color-muted)] mt-4 max-w-2xl mx-auto">{equipe.sectionSubtitle}</p>
+      )}
+    </div>
+
+    {/* Horizontal carousel — CSS-only scroll-snap */}
+    <div class="equipe-carousel flex gap-5 overflow-x-auto pb-4 -mx-6 px-6 md:-mx-0 md:px-0" style="-webkit-overflow-scrolling: touch; scrollbar-width: none;">
+      {equipe.members.map((member) => (
+        <div
+          class="shrink-0 snap-start overflow-hidden group"
+          style="width: 300px; border-radius: var(--radius-lg);"
+        >
+          {/* Photo with overlay */}
+          <div class="relative h-[360px] overflow-hidden">
+            <img
+              src={member.photo}
+              alt={member.name}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            {/* Gradient overlay */}
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+            {/* Specialty badge */}
+            <div class="absolute top-4 left-4 bg-white/15 backdrop-blur-sm px-3 py-1.5 text-white text-xs font-semibold uppercase tracking-wider" style="border-radius: var(--radius-full);">
+              {member.specialty}
+            </div>
+            {/* Name + CRM over photo */}
+            <div class="absolute bottom-4 left-4 right-4">
+              <p class="text-white font-semibold text-lg leading-tight">{member.name}</p>
+              <p class="text-white/70 text-xs uppercase tracking-wider mt-1">{member.specialty} · {member.crm}</p>
+            </div>
+          </div>
+
+          {/* Info below photo */}
+          <div class="p-5 bg-[var(--color-surface)]">
+            {/* Tags */}
+            <div class="flex flex-wrap gap-2 mb-3">
+              {member.tags.map((tag) => (
+                <span class="bg-[var(--color-accent)]/10 text-[var(--color-accent)] text-xs font-medium px-3 py-1" style="border-radius: var(--radius-full);">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <p class="text-sm text-[var(--color-muted)] leading-relaxed">{member.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .equipe-carousel {
+    scroll-snap-type: x mandatory;
+  }
+  .equipe-carousel::-webkit-scrollbar {
+    display: none;
+  }
+  .equipe-carousel > * {
+    scroll-snap-align: start;
+  }
+</style>

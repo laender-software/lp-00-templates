@@ -1,0 +1,53 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/sections/Header.astro";
+import Hero from "../../components/sections/Hero.astro";
+import Estrutura from "../../components/sections/Estrutura.astro";
+import Equipe from "../../components/sections/Equipe.astro";
+import Especialidades from "../../components/sections/Especialidades.astro";
+import Diferenciais from "../../components/sections/Diferenciais.astro";
+import ComoFunciona from "../../components/sections/ComoFunciona.astro";
+import Depoimentos from "../../components/sections/Depoimentos.astro";
+import Localizacao from "../../components/sections/Localizacao.astro";
+import FAQ from "../../components/sections/FAQ.astro";
+import CTAFinal from "../../components/sections/CTAFinal.astro";
+import Footer from "../../components/sections/Footer.astro";
+import WhatsAppButton from "../../components/sections/WhatsAppButton.astro";
+
+import persona from "../../data/personas/institucional.json";
+import type { Persona } from "../../data/types";
+
+const data = persona as Persona;
+const s = data.sections as Persona["sections"];
+---
+
+<Layout persona={data}>
+  <Header
+    variant="minimal"
+    doctorName={data.doctor.displayName}
+    whatsapp={data.meta.whatsapp}
+  />
+
+  <main id="main-content">
+    <Hero variant="cinematic" hero={s.hero} whatsapp={data.meta.whatsapp} />
+    <Estrutura estrutura={s.estrutura!} bgColor="default" />
+    <Equipe equipe={s.equipe!} bgColor="alt" />
+    <Especialidades variant="icon-left" especialidades={s.especialidades} bgColor="default" />
+    <Diferenciais variant="numbered" diferenciais={s.diferenciais} bgColor="alt" />
+    <ComoFunciona variant="cards" comoFunciona={s.comoFunciona} bgColor="default" />
+    <Depoimentos variant="grid" depoimentos={s.depoimentos} bgColor="alt" />
+    <Localizacao localizacao={s.localizacao} bgColor="default" />
+    <FAQ variant="two-column" faq={s.faq} bgColor="alt" />
+    <CTAFinal variant="split-cta" ctaFinal={s.ctaFinal} whatsapp={data.meta.whatsapp} />
+  </main>
+
+  <Footer
+    variant="columns"
+    footer={s.footer}
+    doctor={data.doctor}
+    instagram={data.meta.instagram}
+    email={data.meta.email}
+  />
+
+  <WhatsAppButton whatsapp={data.meta.whatsapp} />
+</Layout>

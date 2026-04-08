@@ -1,0 +1,180 @@
+---
+interface Props {
+  doctorName: string;
+  whatsapp: string;
+  ctaText?: string;
+  navLinks?: { text: string; href: string }[];
+  variant?: "minimal" | "transparent";
+}
+
+const { doctorName, whatsapp, ctaText = "Agendar Consulta", navLinks, variant = "minimal" } = Astro.props;
+const whatsappLink = whatsapp ? `https://wa.me/${whatsapp}` : "#";
+
+const defaultLinks = [
+  { text: "Sobre", href: "#sobre" },
+  { text: "Especialidades", href: "#especialidades" },
+  { text: "Depoimentos", href: "#depoimentos" },
+  { text: "FAQ", href: "#faq" },
+  { text: "Contato", href: "#contato" },
+];
+const links = navLinks ?? defaultLinks;
+---
+
+{/* ===== MINIMAL (default — fundo sólido, fixo) ===== */}
+{variant === "minimal" && (
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[var(--color-bg)]/95 backdrop-blur-sm border-b border-[var(--color-border)]" id="site-header">
+    <div class="mx-auto max-w-6xl px-6 flex items-center justify-between h-16">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase tracking-widest text-white bg-amber-500 px-2 py-0.5 rounded-sm w-fit">Modelo demonstrativo</span>
+        <a href="#" class="font-[var(--font-heading)] text-lg font-semibold text-[var(--color-text-heading)]">
+          {doctorName}
+        </a>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8">
+        {links.map((link) => (
+          <a href={link.href} class="text-sm text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors">
+            {link.text}
+          </a>
+        ))}
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[var(--color-accent)] text-white px-5 py-2 text-sm font-semibold hover:opacity-90 transition-opacity"
+          style={`border-radius: var(--radius-full)`}
+        >
+          {ctaText}
+        </a>
+      </nav>
+
+      <button class="md:hidden text-[var(--color-text)]" id="menu-toggle" aria-label="Abrir menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <nav class="hidden md:hidden bg-[var(--color-surface)] border-b border-[var(--color-border)]" id="mobile-nav">
+      <div class="px-6 py-4 flex flex-col gap-3">
+        {links.map((link) => (
+          <a href={link.href} class="text-sm text-[var(--color-muted)] hover:text-[var(--color-text)] py-2">
+            {link.text}
+          </a>
+        ))}
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[var(--color-accent)] text-white px-5 py-3 text-sm font-semibold text-center mt-2"
+          style={`border-radius: var(--radius-full)`}
+        >
+          {ctaText}
+        </a>
+      </div>
+    </nav>
+  </header>
+)}
+
+{/* ===== TRANSPARENT (Acolhedor — overlay sobre hero, solid on scroll) ===== */}
+{variant === "transparent" && (
+  <header class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300" id="site-header" data-variant="transparent">
+    <div class="mx-auto max-w-6xl px-6 flex items-center justify-between h-16">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase tracking-widest text-white bg-amber-500 px-2 py-0.5 rounded-sm w-fit" id="header-demo-label">Modelo demonstrativo</span>
+        <a href="#" class="font-[var(--font-heading)] text-lg font-semibold text-white" id="header-logo">
+          {doctorName}
+        </a>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8">
+        {links.map((link) => (
+          <a href={link.href} class="text-sm text-white/80 hover:text-white transition-colors header-nav-link">
+            {link.text}
+          </a>
+        ))}
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[var(--color-accent)] text-white px-5 py-2 text-sm font-semibold hover:opacity-90 transition-opacity"
+          style={`border-radius: var(--radius-full)`}
+        >
+          {ctaText}
+        </a>
+      </nav>
+
+      <button class="md:hidden text-white" id="menu-toggle" aria-label="Abrir menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <nav class="hidden md:hidden bg-[var(--color-surface)] border-b border-[var(--color-border)]" id="mobile-nav">
+      <div class="px-6 py-4 flex flex-col gap-3">
+        {links.map((link) => (
+          <a href={link.href} class="text-sm text-[var(--color-muted)] hover:text-[var(--color-text)] py-2">
+            {link.text}
+          </a>
+        ))}
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[var(--color-accent)] text-white px-5 py-3 text-sm font-semibold text-center mt-2"
+          style={`border-radius: var(--radius-full)`}
+        >
+          {ctaText}
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <script>
+    const header = document.getElementById("site-header");
+    const logo = document.getElementById("header-logo");
+    const demoLabel = document.getElementById("header-demo-label");
+    const navLinks = document.querySelectorAll(".header-nav-link");
+    const menuToggle = document.getElementById("menu-toggle");
+
+    function onScroll() {
+      if (!header) return;
+      const scrolled = window.scrollY > 40;
+      if (scrolled) {
+        header.style.backgroundColor = "color-mix(in srgb, var(--color-bg) 95%, transparent)";
+        header.style.backdropFilter = "blur(8px)";
+        header.style.borderBottom = "1px solid var(--color-border)";
+        if (logo) logo.style.color = "var(--color-text-heading)";
+        if (demoLabel) demoLabel.style.color = "var(--color-muted)";
+        navLinks.forEach((link) => {
+          (link as HTMLElement).style.color = "var(--color-muted)";
+        });
+        if (menuToggle) menuToggle.style.color = "var(--color-text)";
+      } else {
+        header.style.backgroundColor = "transparent";
+        header.style.backdropFilter = "none";
+        header.style.borderBottom = "none";
+        if (logo) logo.style.color = "white";
+        if (demoLabel) demoLabel.style.color = "rgba(255,255,255,0.4)";
+        navLinks.forEach((link) => {
+          (link as HTMLElement).style.color = "rgba(255,255,255,0.8)";
+        });
+        if (menuToggle) menuToggle.style.color = "white";
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  </script>
+)}
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const mobileNav = document.getElementById("mobile-nav");
+  if (toggle && mobileNav) {
+    toggle.addEventListener("click", () => {
+      mobileNav.classList.toggle("hidden");
+    });
+  }
+</script>

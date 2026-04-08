@@ -1,0 +1,112 @@
+---
+import type { Persona } from "../../data/types";
+
+interface Props {
+  comoFunciona: Persona["sections"]["comoFunciona"];
+  variant?: "numbered-list" | "timeline" | "horizontal" | "cards" | "header-cards";
+  bgColor?: "alt" | "default";
+}
+
+const { comoFunciona, variant = "numbered-list", bgColor = "alt" } = Astro.props;
+const bg = bgColor === "default" ? "bg-[var(--color-bg)]" : "bg-[var(--color-bg-alt)]";
+---
+
+<section class:list={["py-20 md:py-28", bg]} id="como-funciona">
+  <div class="mx-auto px-6 max-w-4xl text-center mb-12">
+    <p class="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-4">Passo a passo</p>
+    <h2 class="font-[var(--font-heading)] text-3xl md:text-4xl font-semibold text-[var(--color-text-heading)]">{comoFunciona.sectionTitle}</h2>
+  </div>
+
+  {variant === "numbered-list" && (
+    <div class="mx-auto px-6 max-w-4xl space-y-8 stagger">
+      {comoFunciona.steps.map((step) => (
+        <div class="flex gap-6 items-start">
+          <div class="shrink-0 w-14 h-14 bg-[var(--color-accent)] text-[var(--color-primary)] font-[var(--font-heading)] text-xl font-bold flex items-center justify-center" style="border-radius: var(--radius-lg)">
+            {step.number}
+          </div>
+          <div>
+            <h3 class="font-semibold text-[var(--color-text-heading)] text-lg mb-1">{step.title}</h3>
+            <p class="text-[var(--color-muted)] leading-relaxed">{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {variant === "timeline" && (
+    <div class="mx-auto px-6 max-w-2xl">
+      <div class="relative">
+        <div class="absolute left-7 top-0 bottom-0 w-px bg-[var(--color-border)]"></div>
+        <div class="space-y-10 stagger">
+          {comoFunciona.steps.map((step) => (
+            <div class="flex gap-8 items-start">
+              <div class="relative shrink-0 w-14 h-14 bg-[var(--color-accent)] text-[var(--color-primary)] font-[var(--font-heading)] text-lg font-bold flex items-center justify-center z-10" style="border-radius: 9999px">
+                {step.number}
+              </div>
+              <div class="pt-3">
+                <h3 class="font-semibold text-[var(--color-text-heading)] text-lg mb-1">{step.title}</h3>
+                <p class="text-[var(--color-muted)] leading-relaxed">{step.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )}
+
+  {variant === "horizontal" && (
+    <div class="mx-auto px-6 max-w-5xl">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-0 stagger">
+        {comoFunciona.steps.map((step, index) => (
+          <div class="relative flex flex-col items-center text-center px-4">
+            {index < comoFunciona.steps.length - 1 && (
+              <div class="hidden md:block absolute top-7 left-1/2 w-full h-px bg-[var(--color-border)]" style="z-index: 0"></div>
+            )}
+            <div class="relative z-10 w-14 h-14 bg-[var(--color-accent)] text-[var(--color-primary)] font-[var(--font-heading)] text-xl font-bold flex items-center justify-center mb-4" style="border-radius: 9999px">
+              {step.number}
+            </div>
+            <h3 class="font-semibold text-[var(--color-text-heading)] text-base mb-2">{step.title}</h3>
+            <p class="text-[var(--color-muted)] text-sm leading-relaxed">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+
+  {variant === "cards" && (
+    <div class="mx-auto px-6 max-w-4xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 stagger">
+        {comoFunciona.steps.map((step) => (
+          <div class="relative bg-[var(--color-surface)] border border-[var(--color-border)] p-6 card-lift" style="border-radius: var(--radius-lg)">
+            <div class="w-10 h-10 bg-[var(--color-accent)] text-white font-[var(--font-heading)] text-base font-bold flex items-center justify-center mb-4" style="border-radius: var(--radius-lg)">
+              {step.number}
+            </div>
+            <h3 class="font-semibold text-[var(--color-text-heading)] text-lg mb-2">{step.title}</h3>
+            <p class="text-[var(--color-muted)] leading-relaxed">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+
+  {/* ===== HEADER-CARDS (Nyres — card com faixa colorida no topo) ===== */}
+  {variant === "header-cards" && (
+    <div class="mx-auto px-6 max-w-4xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 stagger">
+        {comoFunciona.steps.map((step) => (
+          <div class="overflow-hidden border border-[var(--color-border)] card-lift" style="border-radius: var(--radius-lg)">
+            <div class="bg-[var(--color-accent)] px-6 py-4 flex items-center gap-4">
+              <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center shrink-0">
+                <span class="text-white font-[var(--font-heading)] font-bold text-base">{step.number}</span>
+              </div>
+              <h3 class="text-white font-semibold text-base leading-tight">{step.title}</h3>
+            </div>
+            <div class="bg-[var(--color-surface)] px-6 py-5">
+              <p class="text-[var(--color-muted)] leading-relaxed">{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+</section>

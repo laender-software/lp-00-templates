@@ -1,0 +1,18 @@
+[data-theme="clean"] {
+  --font-heading: "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  --color-primary: #6B3A4A;
+  --color-accent: #C4889B;
+  --color-bg: #FFFFFF;
+  --color-bg-alt: #FBF8F9;
+  --color-surface: #F9F1F4;
+  --color-text: #0F172A;
+  --color-text-heading: #0F172A;
+  --color-muted: #64748B;
+  --color-border: #E2E8F0;
+
+  --radius: 6px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+}

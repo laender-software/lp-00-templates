@@ -1,0 +1,73 @@
+---
+import type { Persona } from "../../data/types";
+
+interface Props {
+  faq: Persona["sections"]["faq"];
+  variant?: "accordion" | "simple" | "two-column";
+  bgColor?: "default" | "alt";
+}
+
+const { faq, variant = "accordion", bgColor = "default" } = Astro.props;
+const sectionBg = bgColor === "alt" ? "bg-[var(--color-bg-alt)]" : "bg-[var(--color-bg)]";
+---
+
+<section class:list={["py-20 md:py-28", sectionBg]} id="faq">
+
+  {(variant === "accordion" || variant === "simple") && (
+    <div class="mx-auto px-6 max-w-3xl">
+      <div class="text-center mb-12">
+        <p class="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-4">FAQ</p>
+        <h2 class="font-[var(--font-heading)] text-3xl md:text-4xl font-semibold text-[var(--color-text-heading)]">{faq.sectionTitle}</h2>
+      </div>
+
+      {variant === "accordion" && (
+        <div class="space-y-4 stagger">
+          {faq.items.map((item) => (
+            <details class="group bg-[var(--color-surface)] border border-[var(--color-border)]" style="border-radius: var(--radius-lg)">
+              <summary class="flex items-center justify-between p-6 cursor-pointer text-[var(--color-text-heading)] font-semibold list-none">
+                {item.question}
+                <span class="text-[var(--color-accent)] transition-transform group-open:rotate-45 text-xl ml-4 shrink-0">+</span>
+              </summary>
+              <div class="px-6 pb-6 text-[var(--color-muted)] leading-relaxed">{item.answer}</div>
+            </details>
+          ))}
+        </div>
+      )}
+
+      {variant === "simple" && (
+        <div class="space-y-0 stagger">
+          {faq.items.map((item, index) => (
+            <div class:list={["py-8", index < faq.items.length - 1 && "border-b border-[var(--color-border)]"]}>
+              <h3 class="font-semibold text-[var(--color-text-heading)] text-lg mb-3 pl-4 border-l-4 border-[var(--color-accent)]">
+                {item.question}
+              </h3>
+              <p class="text-[var(--color-muted)] leading-relaxed pl-4">{item.answer}</p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )}
+
+  {variant === "two-column" && (
+    <div class="mx-auto px-6 max-w-5xl">
+      <div class="text-center mb-12">
+        <p class="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-4">FAQ</p>
+        <h2 class="font-[var(--font-heading)] text-3xl md:text-4xl font-semibold text-[var(--color-text-heading)]">{faq.sectionTitle}</h2>
+      </div>
+      <div class="space-y-0">
+        {faq.items.map((item, index) => (
+          <div class:list={["grid grid-cols-1 md:grid-cols-2 gap-6 py-8", index < faq.items.length - 1 && "border-b border-[var(--color-border)]"]}>
+            <div>
+              <h3 class="font-[var(--font-heading)] font-semibold text-[var(--color-text-heading)] text-lg leading-snug">{item.question}</h3>
+            </div>
+            <div>
+              <p class="text-[var(--color-muted)] leading-relaxed">{item.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+
+</section>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" fill="none">
+  <rect width="300" height="400" fill="#1A2332"/>
+  <circle cx="150" cy="140" r="50" fill="#2A3544"/>
+  <path d="M75 350 Q75 260 150 260 Q225 260 225 350" fill="#2A3544"/>
+  <text x="150" y="380" text-anchor="middle" fill="#9CA3AF" font-family="system-ui" font-size="12">Foto do médico</text>
+</svg>

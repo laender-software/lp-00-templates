@@ -1,0 +1,170 @@
+---
+import type { Persona } from "../../data/types";
+
+interface Props {
+  doctor: Persona["doctor"];
+  photoOverride?: string;
+  variant?: "split" | "editorial" | "overlap" | "side-by-side" | "dark-split";
+}
+
+const { doctor, photoOverride, variant = "split" } = Astro.props;
+const photo = photoOverride ?? doctor.photo;
+---
+
+{/* ===== SPLIT (default — foto esquerda + texto direita) ===== */}
+{variant === "split" && (
+  <section class="py-20 md:py-28 bg-[var(--color-bg-alt)]" id="sobre">
+    <div class="mx-auto px-6 max-w-6xl grid md:grid-cols-2 gap-12 items-center">
+      <div class="reveal flex justify-center">
+        <div class="w-full max-w-sm aspect-square bg-[var(--color-surface)] overflow-hidden photo-zoom" style="border-radius: var(--radius-lg)">
+          <img src={photo} alt={`Foto de ${doctor.displayName}`} class="w-full h-full object-cover" loading="lazy" />
+        </div>
+      </div>
+      <div class="reveal">
+        <p class="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-4">Sobre</p>
+        <h2 class="font-[var(--font-heading)] text-3xl md:text-4xl font-semibold text-[var(--color-text-heading)] mb-6">{doctor.displayName}</h2>
+        <p class="text-[var(--color-muted)] leading-relaxed mb-4">{doctor.about.formation}</p>
+        <p class="text-[var(--color-muted)] leading-relaxed mb-6">{doctor.about.trajectory}</p>
+        <div class="flex gap-6 text-sm">
+          <div>
+            <p class="font-semibold text-[var(--color-text)]">{doctor.about.experience}</p>
+            <p class="text-[var(--color-muted)]">de experiência</p>
+          </div>
+          <div>
+            <p class="font-semibold text-[var(--color-text)]">{doctor.about.patientsServed}</p>
+            <p class="text-[var(--color-muted)]">pacientes atendidos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+{/* ===== EDITORIAL (Clean — foto wide + texto embaixo) ===== */}
+{variant === "editorial" && (
+  <section class="py-20 md:py-28 bg-[var(--color-bg-alt)]" id="sobre">
+    <div class="mx-auto px-6 max-w-5xl">
+      <div class="w-full aspect-[21/9] bg-[var(--color-surface)] overflow-hidden mb-12 reveal photo-zoom" style="border-radius: var(--radius-lg)">
+        <img src={photo} alt={`Foto de ${doctor.displayName}`} class="w-full h-full object-cover object-top" loading="lazy" />
+      </div>
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div class="reveal">
+          <p class="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-4">Sobre</p>
+          <h2 class="font-[var(--font-heading)] text-3xl md:text-4xl font-semibold text-[var(--color-text-heading)]">{doctor.displayName}</h2>
+        </div>
+        <div class="reveal">
+          <p class="text-[var(--color-muted)] leading-relaxed mb-4">{doctor.about.formation}</p>
+          <p class="text-[var(--color-muted)] leading-relaxed mb-6">{doctor.about.trajectory}</p>
+          <div class="flex gap-8 text-sm pt-6 border-t border-[var(--color-border)]">
+            <div>
+              <p class="font-semibold text-[var(--color-text)]">{doctor.about.experience}</p>
+              <p class="text-[var(--color-muted)]">de experiência</p>
+            </div>
+            <div>
+              <p class="font-semibold text-[var(--color-text)]">{doctor.about.patientsServed}</p>
+              <p class="text-[var(--color-muted)]">pacientes atendidos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+{/* ===== OVERLAP (Acolhedor — foto com offset visual) ===== */}
+{variant === "overlap" && (
+  <section class="py-20 md:py-28 bg-[var(--color-bg-alt)]" id="sobre">
+    <div class="mx-auto px-6 max-w-6xl">
+      <div class="relative grid md:grid-cols-5 gap-8 items-center">
+        <div class="md:col-span-2 reveal">
+          <div class="relative">
+            <div class="absolute -inset-4 bg-[var(--color-accent)]/10" style="border-radius: var(--radius-lg)"></div>
+            <div class="relative w-full aspect-[3/4] bg-[var(--color-surface)] overflow-hidden photo-zoom" style="border-radius: var(--radius-lg)">
+              <img src={photo} alt={`Foto de ${doctor.displayName}`} class="w-full h-full object-cover" loading="lazy" />
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-3 reveal">
+          <p class="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-4">Sobre</p>
+          <h2 class="font-[var(--font-heading)] text-3xl md:text-4xl font-semibold text-[var(--color-text-heading)] mb-6">{doctor.displayName}</h2>
+          <p class="text-[var(--color-muted)] leading-relaxed mb-4">{doctor.about.formation}</p>
+          <p class="text-[var(--color-muted)] leading-relaxed mb-6">{doctor.about.trajectory}</p>
+          <div class="flex gap-6 text-sm">
+            <div class="p-4 bg-[var(--color-surface)]" style="border-radius: var(--radius-lg)">
+              <p class="font-semibold text-[var(--color-accent)] text-lg">{doctor.about.experience}</p>
+              <p class="text-[var(--color-muted)] text-xs">de experiência</p>
+            </div>
+            <div class="p-4 bg-[var(--color-surface)]" style="border-radius: var(--radius-lg)">
+              <p class="font-semibold text-[var(--color-accent)] text-lg">{doctor.about.patientsServed}</p>
+              <p class="text-[var(--color-muted)] text-xs">pacientes atendidos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+{/* ===== SIDE-BY-SIDE (Moderno — dois colunas iguais, foto tall, sem decoração) ===== */}
+{variant === "side-by-side" && (
+  <section class="py-20 md:py-28 bg-[var(--color-bg)]" id="sobre">
+    <div class="mx-auto px-6 max-w-6xl grid md:grid-cols-2 gap-12 items-stretch">
+      <div class="reveal flex flex-col justify-center">
+        <p class="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-4">Sobre</p>
+        <h2 class="font-[var(--font-heading)] text-4xl md:text-5xl font-semibold text-[var(--color-text-heading)] mb-5">{doctor.displayName}</h2>
+        <div class="w-12 h-1 bg-[var(--color-accent)] mb-6"></div>
+        <p class="text-[var(--color-muted)] leading-relaxed mb-4">{doctor.about.formation}</p>
+        <p class="text-[var(--color-muted)] leading-relaxed mb-8">{doctor.about.trajectory}</p>
+        <div class="flex gap-4 flex-wrap">
+          <span class="inline-flex flex-col px-5 py-3 bg-[var(--color-accent)] text-[var(--color-bg)] text-sm font-semibold" style="border-radius: var(--radius-lg)">
+            <span class="text-lg font-bold leading-tight">{doctor.about.experience}</span>
+            <span class="font-normal opacity-80 text-xs">de experiência</span>
+          </span>
+          <span class="inline-flex flex-col px-5 py-3 bg-[var(--color-accent)] text-[var(--color-bg)] text-sm font-semibold" style="border-radius: var(--radius-lg)">
+            <span class="text-lg font-bold leading-tight">{doctor.about.patientsServed}</span>
+            <span class="font-normal opacity-80 text-xs">pacientes atendidos</span>
+          </span>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="w-full aspect-[2/3] overflow-hidden photo-zoom" style="border-radius: var(--radius-lg)">
+          <img src={photo} alt={`Foto de ${doctor.displayName}`} class="w-full h-full object-cover" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+{/* ===== DARK-SPLIT (Nyres — fundo escuro dramático, texto esquerda, foto direita) ===== */}
+{variant === "dark-split" && (
+  <section class="py-20 md:py-28 bg-[var(--color-primary)] text-white" id="sobre">
+    <div class="mx-auto px-6 max-w-6xl grid md:grid-cols-5 gap-12 items-center">
+      <div class="md:col-span-3 reveal">
+        <p class="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-4">Sobre</p>
+        <h2 class="font-[var(--font-heading)] text-3xl md:text-4xl font-semibold text-white mb-6">{doctor.displayName}</h2>
+        <p class="text-white/70 leading-relaxed mb-4">{doctor.about.formation}</p>
+        <p class="text-white/70 leading-relaxed mb-6">{doctor.about.trajectory}</p>
+        {doctor.differentials && doctor.differentials[0] && (
+          <div class="bg-white/10 border border-white/20 p-5 mb-6" style="border-radius: var(--radius-lg)">
+            <p class="text-white/90 italic leading-relaxed">{doctor.differentials[0]}</p>
+          </div>
+        )}
+        <div class="flex gap-8 text-sm">
+          <div>
+            <p class="font-semibold text-white">{doctor.about.experience}</p>
+            <p class="text-white/50">de experiência</p>
+          </div>
+          <div>
+            <p class="font-semibold text-white">{doctor.about.patientsServed}</p>
+            <p class="text-white/50">pacientes atendidos</p>
+          </div>
+        </div>
+      </div>
+      <div class="md:col-span-2 reveal">
+        <div class="w-full aspect-[3/4] overflow-hidden photo-zoom" style="border-radius: var(--radius-lg)">
+          <img src={photo} alt={`Foto de ${doctor.displayName}`} class="w-full h-full object-cover" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+)}

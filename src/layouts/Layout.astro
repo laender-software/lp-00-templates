@@ -1,0 +1,97 @@
+---
+import "../styles/global.css";
+import "../styles/starwind.css";
+import type { Persona } from "../data/types";
+
+interface Props {
+  persona: Persona;
+}
+
+const { persona } = Astro.props;
+const theme = persona.meta.theme;
+---
+
+<!doctype html>
+<html lang="pt-BR" data-theme={theme}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={persona.meta.description} />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content={theme === "premium" ? "#0F1419" : "#FFFFFF"} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={persona.meta.title} />
+    <meta property="og:description" content={persona.meta.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Fonts — preload only the fonts used by this theme -->
+    {theme === "premium" && (
+      <>
+        <link rel="preload" href="/fonts/cormorant-garamond-variable.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="/fonts/lato-regular.woff2" as="font" type="font/woff2" crossorigin />
+      </>
+    )}
+    {theme === "clean" && (
+      <link rel="preload" href="/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
+    )}
+    {theme === "acolhedor" && (
+      <link rel="preload" href="/fonts/nunito-variable.woff2" as="font" type="font/woff2" crossorigin />
+    )}
+    {theme === "moderno" && (
+      <>
+        <link rel="preload" href="/fonts/space-grotesk-variable.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
+      </>
+    )}
+    {theme === "institucional" && (
+      <>
+        <link rel="preload" href="/fonts/playfair-display-variable.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="/fonts/source-sans-3-variable.woff2" as="font" type="font/woff2" crossorigin />
+      </>
+    )}
+
+    <title>{persona.meta.title}</title>
+  </head>
+  <body class="bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)]">
+    <slot />
+
+    <!-- Intersection Observer for scroll reveal -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger").forEach((el) => observer.observe(el));
+
+      // Counter animation — counts from 0 to data-counter value on scroll
+      const counters = document.querySelectorAll('[data-counter]');
+      const counterObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          const target = parseInt(el.getAttribute('data-counter') || '0');
+          const prefix = el.getAttribute('data-prefix') || '';
+          const suffix = el.getAttribute('data-suffix') || '';
+          let current = 0;
+          const step = Math.ceil(target / 40);
+          const timer = setInterval(() => {
+            current = Math.min(current + step, target);
+            el.textContent = prefix + current + suffix;
+            if (current >= target) clearInterval(timer);
+          }, 30);
+          counterObs.unobserve(el);
+        });
+      }, { threshold: 0.5 });
+      counters.forEach(el => counterObs.observe(el));
+    </script>
+  </body>
+</html>

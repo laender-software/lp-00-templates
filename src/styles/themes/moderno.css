@@ -1,0 +1,18 @@
+[data-theme="moderno"] {
+  --font-heading: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  --color-primary: #1E1E2E;
+  --color-accent: #6366F1;
+  --color-bg: #FAFAFA;
+  --color-bg-alt: #F3F4F6;
+  --color-surface: #FFFFFF;
+  --color-text: #1F2937;
+  --color-text-heading: #111827;
+  --color-muted: #6B7280;
+  --color-border: #E5E7EB;
+
+  --radius: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+}

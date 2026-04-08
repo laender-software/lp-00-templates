@@ -1,0 +1,42 @@
+---
+import type { Persona } from "../../data/types";
+
+interface Props {
+  localizacao: Persona["sections"]["localizacao"];
+  bgColor?: "alt" | "default";
+}
+
+const { localizacao, bgColor = "alt" } = Astro.props;
+const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(localizacao.mapQuery)}&output=embed`;
+const bg = bgColor === "default" ? "bg-[var(--color-bg)]" : "bg-[var(--color-bg-alt)]";
+---
+
+<section class:list={["py-20 md:py-28", bg]} id="localizacao">
+  <div class="mx-auto px-6 max-w-6xl grid md:grid-cols-2 gap-12 items-center">
+    <div class="reveal">
+      <p class="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-4">Localização</p>
+      <h2 class="font-[var(--font-heading)] text-3xl md:text-4xl font-semibold text-[var(--color-text-heading)] mb-6">{localizacao.sectionTitle}</h2>
+      <p class="text-[var(--color-text)] leading-relaxed mb-6">{localizacao.address}</p>
+      {localizacao.details && (
+        <ul class="space-y-2">
+          {localizacao.details.map((detail) => (
+            <li class="flex items-center gap-2 text-[var(--color-muted)] text-sm">
+              <span class="text-[var(--color-accent)]">&#10003;</span>
+              {detail}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+    <div class="reveal aspect-[4/3] bg-[var(--color-surface)] overflow-hidden" style="border-radius: var(--radius-lg)">
+      <iframe
+        src={mapSrc}
+        class="w-full h-full border-0"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Localização do consultório"
+      ></iframe>
+    </div>
+  </div>
+</section>

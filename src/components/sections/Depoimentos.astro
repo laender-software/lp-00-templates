@@ -1,0 +1,138 @@
+---
+import type { Persona } from "../../data/types";
+
+interface Props {
+  depoimentos: Persona["sections"]["depoimentos"];
+  variant?: "grid" | "highlight" | "editorial" | "stack" | "carousel";
+  bgColor?: "alt" | "default";
+}
+
+const { depoimentos, variant = "grid", bgColor = "default" } = Astro.props;
+const bg = bgColor === "alt" ? "bg-[var(--color-bg-alt)]" : "bg-[var(--color-bg)]";
+---
+
+<section class:list={["py-20 md:py-28", bg]} id="depoimentos">
+  <div class="mx-auto px-6 max-w-4xl text-center mb-12">
+    <p class="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-4">Depoimentos</p>
+    <h2 class="font-[var(--font-heading)] text-3xl md:text-4xl font-semibold text-[var(--color-text-heading)]">{depoimentos.sectionTitle}</h2>
+  </div>
+
+  {/* ===== GRID (Premium — 2x2 cards) ===== */}
+  {variant === "grid" && (
+    <div class="mx-auto px-6 max-w-6xl grid md:grid-cols-2 gap-6 stagger">
+      {depoimentos.items.map((item) => (
+        <div class="bg-[var(--color-surface)] border border-[var(--color-border)] p-8 card-lift" style="border-radius: var(--radius-lg)">
+          <div class="flex gap-1 mb-4">
+            {Array.from({ length: item.rating }).map(() => (
+              <span class="text-[var(--color-accent)]">&#9733;</span>
+            ))}
+          </div>
+          <p class="text-[var(--color-text)] leading-relaxed mb-4 italic">&ldquo;{item.text}&rdquo;</p>
+          <p class="text-sm font-semibold text-[var(--color-muted)]">&mdash; {item.name}</p>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {/* ===== HIGHLIGHT (Clean — 1 grande + menores ao lado) ===== */}
+  {variant === "highlight" && (
+    <div class="mx-auto px-6 max-w-6xl grid md:grid-cols-5 gap-6 stagger">
+      {depoimentos.items.length > 0 && (
+        <div class="md:col-span-3 border border-[var(--color-border)] p-10 flex flex-col justify-center" style="border-radius: var(--radius-lg)">
+          <div class="flex gap-1 mb-5">
+            {Array.from({ length: depoimentos.items[0].rating }).map(() => (
+              <span class="text-[var(--color-accent)] text-lg">&#9733;</span>
+            ))}
+          </div>
+          <p class="font-[var(--font-heading)] text-xl md:text-2xl text-[var(--color-text)] leading-relaxed mb-6 italic">&ldquo;{depoimentos.items[0].text}&rdquo;</p>
+          <p class="text-sm font-semibold text-[var(--color-muted)]">&mdash; {depoimentos.items[0].name}</p>
+        </div>
+      )}
+      <div class="md:col-span-2 flex flex-col gap-6">
+        {depoimentos.items.slice(1, 4).map((item) => (
+          <div class="border border-[var(--color-border)] p-6" style="border-radius: var(--radius-lg)">
+            <div class="flex gap-1 mb-3">
+              {Array.from({ length: item.rating }).map(() => (
+                <span class="text-[var(--color-accent)] text-sm">&#9733;</span>
+              ))}
+            </div>
+            <p class="text-[var(--color-text)] text-sm leading-relaxed mb-3 italic">&ldquo;{item.text}&rdquo;</p>
+            <p class="text-xs font-semibold text-[var(--color-muted)]">&mdash; {item.name}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+
+  {/* ===== EDITORIAL (Acolhedor — aspas grandes, serif, centralizado) ===== */}
+  {variant === "editorial" && (
+    <div class="mx-auto px-6 max-w-3xl space-y-16">
+      {depoimentos.items.map((item, i) => (
+        <div class:list={[
+          "text-center reveal",
+          i < depoimentos.items.length - 1 && "pb-16 border-b border-[var(--color-border)]"
+        ]}>
+          <div class="flex gap-1 justify-center mb-6">
+            {Array.from({ length: item.rating }).map(() => (
+              <span class="text-[var(--color-accent)]">&#9733;</span>
+            ))}
+          </div>
+          <p class="font-[var(--font-heading)] text-xl md:text-2xl text-[var(--color-text)] leading-relaxed mb-6 italic">&ldquo;{item.text}&rdquo;</p>
+          <p class="text-sm font-semibold text-[var(--color-muted)] uppercase tracking-wide">{item.name}</p>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {/* ===== STACK (alternativa — empilhados, compactos) ===== */}
+  {variant === "stack" && (
+    <div class="mx-auto px-6 max-w-3xl space-y-4 stagger">
+      {depoimentos.items.map((item) => (
+        <div class="flex gap-6 p-6 bg-[var(--color-surface)] border border-[var(--color-border)] card-lift" style="border-radius: var(--radius-lg)">
+          <div class="shrink-0 w-10 h-10 flex items-center justify-center bg-[var(--color-accent)]/10 text-[var(--color-accent)] font-semibold text-sm" style="border-radius: var(--radius-full)">
+            {item.name.charAt(0)}
+          </div>
+          <div>
+            <p class="text-[var(--color-text)] leading-relaxed mb-2 italic text-sm">&ldquo;{item.text}&rdquo;</p>
+            <p class="text-xs font-semibold text-[var(--color-muted)]">{item.name}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {/* ===== CAROUSEL (Moderno — scroll horizontal com snap) ===== */}
+  {variant === "carousel" && (
+    <div class="mx-auto px-6 max-w-6xl relative">
+      <div class="relative">
+        <div class="carousel-scroll flex gap-6 overflow-x-auto pb-4 scroll-smooth" style="scroll-snap-type: x mandatory;">
+          {depoimentos.items.map((item) => (
+            <div
+              class="shrink-0 min-w-[320px] md:min-w-[400px] bg-[var(--color-surface)] border border-[var(--color-border)] p-8 reveal"
+              style="border-radius: var(--radius-lg); scroll-snap-align: start;"
+            >
+              <div class="flex gap-1 mb-4">
+                {Array.from({ length: item.rating }).map(() => (
+                  <span class="text-[var(--color-accent)]">&#9733;</span>
+                ))}
+              </div>
+              <p class="text-[var(--color-text)] leading-relaxed mb-4 italic">&ldquo;{item.text}&rdquo;</p>
+              <p class="text-sm font-semibold text-[var(--color-muted)]">&mdash; {item.name}</p>
+            </div>
+          ))}
+        </div>
+        <div class="pointer-events-none absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-[var(--color-bg)] to-transparent"></div>
+      </div>
+    </div>
+  )}
+</section>
+
+<style>
+  .carousel-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>

@@ -32,6 +32,7 @@ export interface Persona {
       ctaText: string;
       secondaryCta?: { text: string; href: string };
       stats?: { value: string; label: string }[];
+      badges?: { label: string }[];
     };
     sinais: {
       sectionTitle: string;

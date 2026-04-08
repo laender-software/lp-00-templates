@@ -1,0 +1,126 @@
+{
+  "meta": {
+    "theme": "premium",
+    "title": "Dr. Ricardo Mendes — Cirurgião Plástico",
+    "description": "Cirurgia plástica com excelência técnica e resultado natural. Dr. Ricardo Mendes, CRM/RJ 52-84721.",
+    "whatsapp": "",
+    "instagram": "@drricardomendescirurgia"
+  },
+  "doctor": {
+    "displayName": "Dr. Ricardo Mendes",
+    "crm": "CRM/RJ 52-84721",
+    "specialty": "Cirurgião Plástico",
+    "city": "Rio de Janeiro",
+    "address": "Av. Atlântica, 1702 - Sala 1204, Copacabana, Rio de Janeiro - RJ",
+    "about": {
+      "formation": "Graduado pela UFRJ, residência em Cirurgia Plástica no Hospital das Clínicas. Membro titular da Sociedade Brasileira de Cirurgia Plástica (SBCP).",
+      "trajectory": "Há 15 anos transformando a autoestima de pacientes com técnicas minimamente invasivas e resultados naturais. Mais de 3.000 procedimentos realizados.",
+      "experience": "Mais de 15 anos",
+      "patientsServed": "Mais de 3.000"
+    },
+    "differentials": [
+      "Técnicas minimamente invasivas com recuperação mais rápida",
+      "Resultado natural — ninguém precisa saber",
+      "Acompanhamento pós-operatório personalizado por 12 meses",
+      "Centro cirúrgico próprio com tecnologia de ponta"
+    ],
+    "photo": "/images/doctor-premium.jpg"
+  },
+  "sections": {
+    "order": [
+      "header", "hero", "sobre", "especialidades", "sinais",
+      "diferenciais", "comoFunciona", "depoimentos", "localizacao",
+      "faq", "ctaFinal", "footer"
+    ],
+    "hero": {
+      "badge": "Cirurgião Plástico · CRM/RJ 52-84721",
+      "headline": "Resultados naturais com técnica de",
+      "highlightWord": "excelência",
+      "subheadline": "Cirurgia plástica minimamente invasiva, com recuperação rápida e acompanhamento completo por 12 meses.",
+      "ctaText": "Agendar Consulta",
+      "secondaryCta": { "text": "Ver Procedimentos", "href": "#especialidades" },
+      "stats": [
+        { "value": "15+", "label": "Anos de Experiência" },
+        { "value": "3.000+", "label": "Procedimentos" },
+        { "value": "12", "label": "Meses de Acompanhamento" }
+      ]
+    },
+    "sinais": {
+      "sectionTitle": "Procedimentos mais procurados",
+      "sectionSubtitle": "Conheça os procedimentos que mais realizamos e descubra qual é o ideal para você.",
+      "items": [
+        { "icon": "lipo", "title": "Lipoaspiração", "description": "Redefine o contorno corporal e deixa a silhueta mais marcada.", "image": "/images/lipoaspiracao.jpg" },
+        { "icon": "mammoplasty", "title": "Aumento Mamário", "description": "Aumenta volume e melhora a proporcionalidade do busto.", "image": "/images/aumento-mamario.jpg" },
+        { "icon": "rhinoplasty", "title": "Blefaroplastia", "description": "Rejuvenesce o olhar e reduz excesso de pele nas pálpebras.", "image": "/images/blefaroplastia.jpg" },
+        { "icon": "abdominoplasty", "title": "Abdominoplastia", "description": "Remove excesso de pele e melhora firmeza abdominal.", "image": "/images/abdominoplastia.jpg" },
+        { "icon": "body", "title": "Aumento de Glúteos", "description": "Valoriza projeção e proporção do quadril e glúteos.", "image": "/images/aumento-gluteos.jpg" },
+        { "icon": "rhinoplasty", "title": "Rinoplastia", "description": "Harmoniza o nariz com o rosto e pode melhorar a respiração.", "image": "/images/rinoplastia.jpg" }
+      ]
+    },
+    "especialidades": {
+      "sectionTitle": "Áreas de Atuação",
+      "items": [
+        { "icon": "face", "name": "Cirurgia Facial", "description": "Rinoplastia, lifting, blefaroplastia, otoplastia." },
+        { "icon": "body", "name": "Cirurgia Corporal", "description": "Lipoaspiração, abdominoplastia, braquioplastia." },
+        { "icon": "breast", "name": "Cirurgia Mamária", "description": "Prótese, redução, mastopexia, reconstrução." },
+        { "icon": "aesthetic", "name": "Procedimentos Estéticos", "description": "Toxina, preenchimento, bioestimuladores." }
+      ]
+    },
+    "diferenciais": {
+      "sectionTitle": "Por que escolher o Dr. Ricardo",
+      "items": [
+        { "icon": "microscope", "title": "Técnicas minimamente invasivas", "description": "Menos cicatrizes, menos dor, recuperação mais rápida." },
+        { "icon": "target", "title": "Resultado natural", "description": "A melhor cirurgia é aquela que ninguém percebe." },
+        { "icon": "hospital", "title": "Centro cirúrgico próprio", "description": "Ambiente controlado com tecnologia de última geração." },
+        { "icon": "clipboard", "title": "Acompanhamento 12 meses", "description": "Pós-operatório personalizado com consultas inclusas." }
+      ]
+    },
+    "comoFunciona": {
+      "sectionTitle": "Como funciona o atendimento",
+      "steps": [
+        { "number": "01", "title": "Consulta inicial", "description": "Avaliação detalhada, simulação 3D do resultado esperado e planejamento cirúrgico personalizado." },
+        { "number": "02", "title": "Exames e preparo", "description": "Solicitação dos exames pré-operatórios e orientações completas para o dia da cirurgia." },
+        { "number": "03", "title": "Procedimento", "description": "Cirurgia no centro cirúrgico próprio com equipe especializada e anestesia segura." },
+        { "number": "04", "title": "Acompanhamento", "description": "Pós-operatório com consultas regulares durante 12 meses para garantir o melhor resultado." }
+      ]
+    },
+    "depoimentos": {
+      "sectionTitle": "O que dizem nossos pacientes",
+      "items": [
+        { "name": "Fernanda M.", "text": "O Dr. Ricardo me passou uma segurança enorme desde a primeira consulta. O resultado ficou tão natural que as pessoas elogiam mas não sabem que fiz.", "rating": 5 },
+        { "name": "Carolina S.", "text": "Fiz rinoplastia e estou apaixonada. Ele é extremamente detalhista e o pós-operatório foi muito mais tranquilo do que imaginei.", "rating": 5 },
+        { "name": "Patricia L.", "text": "Depois de pesquisar muito, escolhi o Dr. Ricardo pela abordagem honesta. Ele me mostrou exatamente o que esperar e superou minhas expectativas.", "rating": 5 },
+        { "name": "Mariana R.", "text": "A estrutura do consultório é impecável e a equipe inteira me fez sentir acolhida. Recomendo de olhos fechados.", "rating": 5 }
+      ]
+    },
+    "localizacao": {
+      "sectionTitle": "Localização",
+      "address": "Av. Atlântica, 1702 - Sala 1204, Copacabana, Rio de Janeiro - RJ",
+      "mapQuery": "Av+Atlantica+1702+Copacabana+Rio+de+Janeiro",
+      "details": [
+        "Estacionamento no prédio",
+        "Próximo à estação de metrô Cardeal Arcoverde",
+        "Atendimento com hora marcada"
+      ]
+    },
+    "faq": {
+      "sectionTitle": "Perguntas Frequentes",
+      "items": [
+        { "question": "A cirurgia plástica dói?", "answer": "Os procedimentos são realizados com anestesia adequada e as técnicas minimamente invasivas reduzem significativamente o desconforto pós-operatório. A maioria dos pacientes relata menos dor do que esperavam." },
+        { "question": "Quanto tempo leva a recuperação?", "answer": "Varia por procedimento. Em geral, procedimentos faciais permitem retorno social em 7-10 dias. Procedimentos corporais, 2-3 semanas. Orientações detalhadas são fornecidas na consulta." },
+        { "question": "O resultado fica natural?", "answer": "Esse é o nosso compromisso. Utilizamos técnicas que respeitam a harmonia facial e corporal de cada paciente. O objetivo é sempre um resultado que valorize, nunca que pareça artificial." },
+        { "question": "Qual o valor dos procedimentos?", "answer": "Os valores são definidos após avaliação individual na consulta, pois dependem da técnica, complexidade e necessidades de cada paciente. Oferecemos opções de parcelamento." },
+        { "question": "Vocês aceitam convênio?", "answer": "Atendemos de forma particular. Cirurgias reparadoras (pós-bariátrica, reconstrução mamária, etc.) podem ter cobertura parcial por convênios — consulte na avaliação." },
+        { "question": "Posso ver fotos de antes e depois?", "answer": "Sim, durante a consulta mostramos resultados de casos similares ao seu, sempre com autorização dos pacientes. Por questões éticas, não publicamos fotos em redes sociais." }
+      ]
+    },
+    "ctaFinal": {
+      "headline": "Pronto para dar o próximo passo?",
+      "subheadline": "Agende sua consulta de avaliação. Sem compromisso, sem pressão — apenas uma conversa honesta sobre o que é possível.",
+      "ctaText": "Agendar pelo WhatsApp"
+    },
+    "footer": {
+      "copyright": "Dr. Ricardo Mendes — CRM/RJ 52-84721. Responsável Técnico."
+    }
+  }
+}

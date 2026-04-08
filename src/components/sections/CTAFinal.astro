@@ -1,0 +1,145 @@
+---
+import type { Persona } from "../../data/types";
+
+interface Props {
+  ctaFinal: Persona["sections"]["ctaFinal"];
+  whatsapp: string;
+  variant?: "solid-bg" | "minimal" | "gradient-bg" | "image-bg" | "split-cta";
+}
+
+const { ctaFinal, whatsapp, variant = "solid-bg" } = Astro.props;
+const whatsappLink = whatsapp ? `https://wa.me/${whatsapp}` : "#";
+---
+
+{/* ===== SOLID-BG (Premium — fundo colorido) ===== */}
+{variant === "solid-bg" && (
+  <section class="py-20 md:py-28 bg-[var(--color-surface)]" id="contato">
+    <div class="mx-auto px-6 max-w-3xl text-center reveal">
+      <h2 class="font-[var(--font-heading)] text-3xl md:text-4xl font-semibold text-[var(--color-text-heading)] mb-6">{ctaFinal.headline}</h2>
+      <p class="text-[var(--color-muted)] text-lg leading-relaxed mb-10">{ctaFinal.subheadline}</p>
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-glow inline-flex items-center gap-2 bg-[var(--color-accent)] text-[var(--color-primary)] px-10 py-4 text-base font-bold hover:opacity-90 transition-opacity"
+        style="border-radius: var(--radius-full)"
+      >
+        {ctaFinal.ctaText}
+      </a>
+    </div>
+  </section>
+)}
+
+{/* ===== MINIMAL (Clean — sem fundo, elegante) ===== */}
+{variant === "minimal" && (
+  <section class="py-24 md:py-32 bg-[var(--color-bg)]" id="contato">
+    <div class="mx-auto px-6 max-w-2xl text-center reveal">
+      <h2 class="font-[var(--font-heading)] text-3xl md:text-5xl font-semibold text-[var(--color-text-heading)] mb-6 leading-tight">{ctaFinal.headline}</h2>
+      <p class="text-[var(--color-muted)] text-lg leading-relaxed mb-10">{ctaFinal.subheadline}</p>
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-glow inline-flex items-center gap-2 bg-[var(--color-accent)] text-white px-10 py-4 text-base font-semibold hover:opacity-90 transition-opacity"
+        style="border-radius: var(--radius-full)"
+      >
+        {ctaFinal.ctaText}
+      </a>
+      <p class="text-[var(--color-muted)] text-sm mt-6">Sem compromisso. Resposta em até 2 horas.</p>
+    </div>
+  </section>
+)}
+
+{/* ===== GRADIENT-BG (Moderno — gradiente de fundo) ===== */}
+{variant === "gradient-bg" && (
+  <section class="py-20 md:py-28 bg-gradient-to-br from-[var(--color-accent)]/10 via-[var(--color-bg)] to-[var(--color-surface)]" id="contato">
+    <div class="mx-auto px-6 max-w-3xl text-center reveal">
+      <h2 class="font-[var(--font-heading)] text-3xl md:text-4xl font-semibold text-[var(--color-text-heading)] mb-6">{ctaFinal.headline}</h2>
+      <p class="text-[var(--color-muted)] text-lg leading-relaxed mb-10">{ctaFinal.subheadline}</p>
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-glow inline-flex items-center gap-2 bg-[var(--color-accent)] text-white px-10 py-4 text-base font-bold hover:opacity-90 transition-shadow hover:shadow-lg hover:shadow-[var(--color-accent)]/20"
+        style="border-radius: var(--radius-full)"
+      >
+        {ctaFinal.ctaText}
+      </a>
+    </div>
+  </section>
+)}
+
+{/* ===== IMAGE-BG (Acolhedor — fundo quente com elemento decorativo) ===== */}
+{variant === "image-bg" && (
+  <section class="relative py-24 md:py-32 overflow-hidden bg-[var(--color-accent)]/8" id="contato">
+    {/* Decorative large quote mark */}
+    <div class="pointer-events-none select-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
+      <span class="text-[20rem] leading-none font-serif text-[var(--color-accent)]/6 translate-y-8">&ldquo;</span>
+    </div>
+    {/* Warm gradient overlay */}
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-[var(--color-accent)]/5 via-transparent to-[var(--color-surface)]/60" aria-hidden="true"></div>
+
+    <div class="relative mx-auto px-6 max-w-3xl text-center reveal">
+      <h2 class="font-[var(--font-heading)] text-3xl md:text-5xl font-semibold text-[var(--color-text-heading)] mb-6 leading-tight">{ctaFinal.headline}</h2>
+      <p class="text-[var(--color-muted)] text-lg leading-relaxed mb-10 max-w-xl mx-auto">{ctaFinal.subheadline}</p>
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-glow inline-flex items-center gap-2 bg-[var(--color-accent)] text-[var(--color-primary)] px-10 py-4 text-base font-bold hover:opacity-90 transition-opacity shadow-md"
+        style="border-radius: var(--radius-full)"
+      >
+        {ctaFinal.ctaText}
+      </a>
+      <p class="text-[var(--color-muted)] text-sm mt-6">Sem compromisso. Resposta em até 2 horas.</p>
+    </div>
+  </section>
+)}
+
+{/* ===== SPLIT-CTA (Institucional — texto esquerda, CTA direita) ===== */}
+{variant === "split-cta" && (
+  <section class="py-20 md:py-24 bg-[var(--color-surface)]" id="contato">
+    <div class="mx-auto px-6 max-w-6xl">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 reveal">
+        {/* Left — headline + subheadline */}
+        <div class="flex-1 text-center md:text-left">
+          <h2 class="font-[var(--font-heading)] text-3xl md:text-4xl font-semibold text-[var(--color-text-heading)] mb-4 leading-tight">{ctaFinal.headline}</h2>
+          <p class="text-[var(--color-muted)] text-lg leading-relaxed max-w-lg">{ctaFinal.subheadline}</p>
+        </div>
+
+        {/* Right — CTA + trust indicators */}
+        <div class="flex flex-col items-center md:items-end gap-4 shrink-0">
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-glow inline-flex items-center gap-2 bg-[var(--color-accent)] text-white px-10 py-4 text-base font-bold hover:opacity-90 transition-opacity whitespace-nowrap"
+            style="border-radius: var(--radius-full)"
+          >
+            {ctaFinal.ctaText}
+          </a>
+          <ul class="flex flex-col gap-1 text-sm text-[var(--color-muted)] text-center md:text-right">
+            <li class="flex items-center gap-1.5 justify-center md:justify-end">
+              <svg class="w-3.5 h-3.5 shrink-0 text-[var(--color-accent)]" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Atendimento em até 24h
+            </li>
+            <li class="flex items-center gap-1.5 justify-center md:justify-end">
+              <svg class="w-3.5 h-3.5 shrink-0 text-[var(--color-accent)]" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Sem compromisso
+            </li>
+            <li class="flex items-center gap-1.5 justify-center md:justify-end">
+              <svg class="w-3.5 h-3.5 shrink-0 text-[var(--color-accent)]" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Primeira consulta presencial
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+)}

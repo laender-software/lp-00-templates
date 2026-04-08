@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "theme": "moderno",
+    "title": "Dr. Lucas Ferreira — Implantodontista",
+    "description": "Implantodontista em Brasília. Implantes dentários com tecnologia digital, planejamento 3D e carga imediata. Dr. Lucas Ferreira, CRO/DF 12.845.",
+    "whatsapp": "",
+    "instagram": "@drlucasferreiraimplantes",
+    "email": "contato@drlucasferreira.com.br"
+  },
+  "doctor": {
+    "displayName": "Dr. Lucas Ferreira",
+    "crm": "CRO/DF 12.845",
+    "specialty": "Implantodontista",
+    "city": "Brasília",
+    "address": "SGAS 915, Bloco C, Sala 312, Asa Sul, Brasília - DF",
+    "about": {
+      "formation": "Graduado pela UnB, especialização em Implantodontia pela ABO-DF. Certificação em cirurgia guiada digital e protocolo de carga imediata.",
+      "trajectory": "Há 8 anos devolvendo sorrisos com implantes de última geração. Pioneiro em Brasília no uso de planejamento digital 3D para implantes com precisão milimétrica.",
+      "experience": "8 anos",
+      "patientsServed": "Mais de 2.500"
+    },
+    "differentials": [
+      "Planejamento 3D com cirurgia guiada digital",
+      "Implantes com carga imediata — saia com dentes no mesmo dia",
+      "Scanner intraoral digital — sem moldagem convencional",
+      "Sedação consciente para pacientes com medo de dentista"
+    ],
+    "photo": "/images/doctor-moderno.jpg"
+  },
+  "sections": {
+    "order": [
+      "header", "hero", "sobre", "especialidades", "sinais",
+      "diferenciais", "comoFunciona", "depoimentos", "localizacao",
+      "faq", "ctaFinal", "footer"
+    ],
+    "hero": {
+      "badge": "Implantodontista · CRO/DF 12.845",
+      "headline": "Implantes dentários com",
+      "highlightWord": "tecnologia de ponta",
+      "subheadline": "Planejamento digital 3D, cirurgia guiada e carga imediata. Recupere seu sorriso com precisão, conforto e resultado definitivo.",
+      "ctaText": "Avaliar meu caso",
+      "secondaryCta": { "text": "Ver procedimentos", "href": "#especialidades" },
+      "stats": [
+        { "value": "2.500+", "label": "Implantes Realizados" },
+        { "value": "99%", "label": "Taxa de Sucesso" },
+        { "value": "8", "label": "Anos de Experiência" }
+      ]
+    },
+    "sinais": {
+      "sectionTitle": "Procedimentos",
+      "sectionSubtitle": "Soluções completas para recuperar função e estética do seu sorriso, do implante unitário à reabilitação total.",
+      "items": [
+        { "icon": "implant", "title": "Implante unitário", "description": "Substitui um dente perdido com aparência e função naturais.", "image": "/images/moderno_implante-unitario.jpg" },
+        { "icon": "protocol", "title": "All-on-4", "description": "Restaura a arcada completa com mais rapidez e previsibilidade.", "image": "/images/moderno_all-on-4.jpg" },
+        { "icon": "dental-aesthetics", "title": "Lentes e facetas", "description": "Melhora cor, forma e simetria para um sorriso mais harmônico.", "image": "/images/moderno_lentes-facetas.jpg" },
+        { "icon": "dental-crown", "title": "Clareamento dental", "description": "Aparência mais luminosa e saudável para o seu sorriso.", "image": "/images/moderno_clareamento.jpg" }
+      ]
+    },
+    "especialidades": {
+      "sectionTitle": "Áreas de Atuação",
+      "items": [
+        { "icon": "implant", "name": "Implantodontia", "description": "Implantes unitários, múltiplos e protocolo sobre implantes." },
+        { "icon": "digital-dentistry", "name": "Odontologia Digital", "description": "Scanner intraoral, planejamento 3D e guias cirúrgicos digitais." },
+        { "icon": "dental-aesthetics", "name": "Estética Dental", "description": "Lentes de contato, facetas e clareamento para um sorriso natural." },
+        { "icon": "dental-surgery", "name": "Cirurgia Oral", "description": "Enxertos ósseos, extrações complexas e elevação de seio maxilar." }
+      ]
+    },
+    "diferenciais": {
+      "sectionTitle": "Por que escolher o Dr. Lucas",
+      "items": [
+        { "icon": "scan", "title": "100% Digital", "description": "Scanner intraoral, tomografia e planejamento 3D — sem moldes de gesso." },
+        { "icon": "target", "title": "Precisão milimétrica", "description": "Cirurgia guiada com guias impressos em 3D para posicionamento exato." },
+        { "icon": "clock", "title": "Carga imediata", "description": "Em casos selecionados, saia da cirurgia com dentes provisórios no mesmo dia." },
+        { "icon": "shield", "title": "Sedação consciente", "description": "Para pacientes ansiosos — procedimento confortável, sem medo." }
+      ]
+    },
+    "comoFunciona": {
+      "sectionTitle": "Seu tratamento passo a passo",
+      "steps": [
+        { "number": "01", "title": "Avaliação digital", "description": "Tomografia, scanner intraoral e análise completa. Tudo digital, sem moldagem." },
+        { "number": "02", "title": "Planejamento 3D", "description": "Simulação virtual do resultado final e fabricação do guia cirúrgico personalizado." },
+        { "number": "03", "title": "Cirurgia guiada", "description": "Implante posicionado com precisão milimétrica. Procedimento rápido e minimamente invasivo." },
+        { "number": "04", "title": "Resultado definitivo", "description": "Prótese final instalada com encaixe perfeito. Seu novo sorriso, para a vida toda." }
+      ]
+    },
+    "depoimentos": {
+      "sectionTitle": "Resultados que falam por si",
+      "items": [
+        { "name": "Roberto S.", "text": "Usei dentadura por 15 anos. O Dr. Lucas fez o protocolo sobre implantes e em um dia eu saí com dentes fixos. Mudou minha vida completamente.", "rating": 5 },
+        { "name": "Marcela P.", "text": "A tecnologia do consultório é impressionante. Scanner 3D, tudo digital. Não teve aquela massinha horrível de moldagem. O implante ficou perfeito.", "rating": 5 },
+        { "name": "Carlos A.", "text": "Tinha muito medo de dentista. A sedação consciente fez toda a diferença. Não senti absolutamente nada. Resultado impecável.", "rating": 5 },
+        { "name": "Patrícia L.", "text": "Perdi um dente em um acidente e achei que ia demorar meses. Com carga imediata, saí da cirurgia já com o dente provisório. Incrível.", "rating": 5 }
+      ]
+    },
+    "localizacao": {
+      "sectionTitle": "Localização",
+      "address": "SGAS 915, Bloco C, Sala 312, Asa Sul, Brasília - DF",
+      "mapQuery": "SGAS+915+Bloco+C+Asa+Sul+Brasilia+DF",
+      "details": [
+        "Estacionamento no subsolo do edifício",
+        "Próximo ao Hospital Santa Lúcia",
+        "Atendimento com hora marcada"
+      ]
+    },
+    "faq": {
+      "sectionTitle": "Perguntas Frequentes",
+      "items": [
+        { "question": "O implante dói?", "answer": "O procedimento é feito com anestesia local ou sedação consciente. A maioria dos pacientes relata menos desconforto do que esperava. Prescrevemos medicação para o pós-operatório." },
+        { "question": "Quanto tempo dura um implante?", "answer": "Com higiene adequada e acompanhamento regular, implantes duram a vida toda. O índice de sucesso em 10 anos supera 97%." },
+        { "question": "O que é carga imediata?", "answer": "É a técnica que permite instalar o implante e colocar um dente provisório no mesmo dia. Nem todos os casos são elegíveis — avaliamos na consulta." },
+        { "question": "Tenho pouco osso. Posso fazer implante?", "answer": "Na maioria dos casos, sim. Técnicas como enxerto ósseo e elevação de seio maxilar viabilizam implantes mesmo com perda óssea significativa." },
+        { "question": "Qual o valor do implante?", "answer": "O investimento depende do número de implantes, tipo de prótese e necessidade de procedimentos complementares. Fazemos um orçamento detalhado após a avaliação." },
+        { "question": "Vocês aceitam convênio?", "answer": "Atendemos particular com opções de parcelamento. Alguns convênios cobrem parte dos procedimentos — consulte na avaliação." }
+      ]
+    },
+    "videos": {
+      "sectionTitle": "Veja na prática",
+      "sectionSubtitle": "Procedimentos, tecnologia e resultados reais no consultório.",
+      "items": [
+        { "thumbnail": "/images/placeholder-doctor.svg", "title": "Como funciona a cirurgia guiada por computador", "url": "#", "platform": "youtube" },
+        { "thumbnail": "/images/placeholder-doctor.svg", "title": "Implante com carga imediata — passo a passo", "url": "#", "platform": "instagram" },
+        { "thumbnail": "/images/placeholder-doctor.svg", "title": "Scanner intraoral 3D: sem aquela massinha", "url": "#", "platform": "instagram" }
+      ]
+    },
+    "ctaFinal": {
+      "headline": "Recupere seu sorriso com tecnologia",
+      "subheadline": "Agende sua avaliação digital completa. Sem compromisso — vamos analisar seu caso com precisão.",
+      "ctaText": "Agendar Avaliação"
+    },
+    "footer": {
+      "copyright": "Dr. Lucas Ferreira — CRO/DF 12.845. Responsável Técnico."
+    }
+  }
+}

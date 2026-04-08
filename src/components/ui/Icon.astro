@@ -1,0 +1,100 @@
+---
+import { Icon as AstroIcon } from "astro-icon/components";
+
+interface Props {
+  name: string;
+  class?: string;
+}
+
+const { name, class: className = "" } = Astro.props;
+
+/**
+ * Maps semantic icon names (from persona JSON) to Lucide icon names.
+ * Browse available icons: https://lucide.dev/icons
+ */
+const iconMap: Record<string, string> = {
+  // Especialidades
+  "face": "lucide:scan-face",
+  "body": "lucide:person-standing",
+  "breast": "lucide:heart",
+  "aesthetic": "lucide:sparkles",
+
+  // Procedimentos
+  "rhinoplasty": "lucide:focus",
+  "lifting": "lucide:arrow-up-from-line",
+  "lipo": "lucide:move-diagonal",
+  "mammoplasty": "lucide:circle-dot",
+  "abdominoplasty": "lucide:minimize-2",
+  "botox": "lucide:syringe",
+
+  // Diferenciais
+  "microscope": "lucide:microscope",
+  "target": "lucide:target",
+  "hospital": "lucide:building-2",
+  "clipboard": "lucide:clipboard-check",
+
+  // Dermato / Clean
+  "skincare": "lucide:droplets",
+  "laser": "lucide:zap",
+  "syringe": "lucide:syringe",
+  "scan": "lucide:scan-eye",
+  "sun": "lucide:sun",
+  "skin-clinical": "lucide:activity",
+  "skin-aesthetic": "lucide:sparkles",
+  "hair": "lucide:wind",
+  "shield-check": "lucide:shield-check",
+  "heart-handshake": "lucide:heart-handshake",
+  "refresh": "lucide:refresh-cw",
+
+  // Ginecologia / Acolhedor
+  "prenatal": "lucide:baby",
+  "hormones": "lucide:activity",
+  "contraception": "lucide:shield-check",
+  "menopause": "lucide:flower-2",
+  "breast-health": "lucide:heart-pulse",
+  "fertility": "lucide:sprout",
+  "obstetrics": "lucide:baby",
+  "gynecology": "lucide:heart",
+  "reproductive": "lucide:sprout",
+  "wellness": "lucide:leaf",
+  "baby": "lucide:baby",
+  "leaf": "lucide:leaf",
+
+  // Odontologia / Moderno
+  "implant": "lucide:pin",
+  "protocol": "lucide:grid-3x3",
+  "immediate-load": "lucide:zap",
+  "guided-surgery": "lucide:crosshair",
+  "bone-graft": "lucide:layers",
+  "dental-crown": "lucide:crown",
+  "digital-dentistry": "lucide:monitor",
+  "dental-aesthetics": "lucide:sparkles",
+  "dental-surgery": "lucide:scissors",
+
+  // Institucional / Clínica
+  "checkup": "lucide:clipboard-list",
+  "cardiology": "lucide:heart-pulse",
+  "orthopedics": "lucide:bone",
+  "pediatrics": "lucide:baby",
+  "endocrinology": "lucide:activity",
+  "lab": "lucide:flask-conical",
+  "neurology": "lucide:brain",
+
+  // Generic fallbacks
+  "check": "lucide:check",
+  "star": "lucide:star",
+  "phone": "lucide:phone",
+  "mail": "lucide:mail",
+  "map": "lucide:map-pin",
+  "clock": "lucide:clock",
+  "shield": "lucide:shield-check",
+  "award": "lucide:award",
+  "users": "lucide:users",
+  "calendar": "lucide:calendar",
+  "stethoscope": "lucide:stethoscope",
+};
+
+const resolvedIcon = iconMap[name] || "lucide:circle-help";
+---
+
+<AstroIcon name={resolvedIcon} class={className} />

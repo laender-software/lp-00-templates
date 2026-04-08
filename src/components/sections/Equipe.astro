@@ -13,7 +13,7 @@ const sectionBg = bgColor === "alt" ? "bg-[var(--color-bg-alt)]" : "bg-[var(--co
 <section class:list={["py-20 md:py-28", sectionBg]} id="equipe">
   <div class="mx-auto px-6 max-w-6xl">
     <div class="text-center mb-12">
-      <p class="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-4">Equipe</p>
+      <p class="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-4">Corpo Clínico</p>
       <h2 class="font-[var(--font-heading)] text-3xl md:text-4xl font-semibold text-[var(--color-text-heading)]">{equipe.sectionTitle}</h2>
       {equipe.sectionSubtitle && (
         <p class="text-[var(--color-muted)] mt-4 max-w-2xl mx-auto">{equipe.sectionSubtitle}</p>
@@ -21,7 +21,7 @@ const sectionBg = bgColor === "alt" ? "bg-[var(--color-bg-alt)]" : "bg-[var(--co
     </div>
 
     {/* Horizontal carousel — CSS-only scroll-snap */}
-    <div class="equipe-carousel flex gap-5 overflow-x-auto pb-4 -mx-6 px-6 md:-mx-0 md:px-0" style="-webkit-overflow-scrolling: touch; scrollbar-width: none;">
+    <div class="equipe-carousel flex gap-5 overflow-x-auto pb-4 md:mx-0 md:px-0" style="-webkit-overflow-scrolling: touch; scrollbar-width: none;">
       {equipe.members.map((member) => (
         <div
           class="shrink-0 snap-start overflow-hidden group"

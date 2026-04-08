@@ -1,0 +1,154 @@
+---
+import type { Persona } from "../../data/types";
+import Icon from "../ui/Icon.astro";
+
+interface Props {
+  sinais: Persona["sections"]["sinais"];
+  variant?: "bordered" | "minimal" | "border-left" | "gradient" | "icon-left" | "clustered" | "image-card" | "image-horizontal";
+  bgColor?: "alt" | "default";
+}
+
+const { sinais, variant = "border-left", bgColor = "alt" } = Astro.props;
+const bg = bgColor === "default" ? "bg-[var(--color-bg)]" : "bg-[var(--color-bg-alt)]";
+---
+
+<section class:list={["py-20 md:py-28", bg]} id="sinais">
+  <div class="mx-auto px-6 max-w-4xl text-center mb-12">
+    <h2 class="font-[var(--font-heading)] text-3xl md:text-4xl font-semibold text-[var(--color-text-heading)] mb-4">{sinais.sectionTitle}</h2>
+    <p class="text-[var(--color-muted)] text-lg leading-relaxed">{sinais.sectionSubtitle}</p>
+  </div>
+
+  {/* ===== BORDERED (Premium classic) ===== */}
+  {variant === "bordered" && (
+    <div class="mx-auto px-6 max-w-6xl grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger">
+      {sinais.items.map((item) => (
+        <div class="bg-[var(--color-surface)] border border-[var(--color-border)] p-6 card-lift" style="border-radius: var(--radius-lg)">
+          <Icon name={item.icon} class="w-6 h-6 text-[var(--color-accent)] mb-3" />
+          <h3 class="font-semibold text-[var(--color-text-heading)] mb-2">{item.title}</h3>
+          <p class="text-sm text-[var(--color-muted)] leading-relaxed">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {/* ===== BORDER-LEFT (default — borda lateral colorida) ===== */}
+  {variant === "border-left" && (
+    <div class="mx-auto px-6 max-w-6xl grid sm:grid-cols-2 lg:grid-cols-3 gap-5 stagger">
+      {sinais.items.map((item) => (
+        <div class="flex items-start gap-4 p-5 border-l-2 border-[var(--color-accent)] bg-[var(--color-surface)]/50 card-lift" style="border-radius: var(--radius-lg)">
+          <Icon name={item.icon} class="w-5 h-5 text-[var(--color-accent)] mt-0.5 shrink-0" />
+          <div>
+            <h3 class="font-semibold text-[var(--color-text-heading)] mb-1">{item.title}</h3>
+            <p class="text-sm text-[var(--color-muted)] leading-relaxed">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {/* ===== MINIMAL (Clean — sem fundo, sem borda, apenas texto) ===== */}
+  {variant === "minimal" && (
+    <div class="mx-auto px-6 max-w-6xl grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10 stagger">
+      {sinais.items.map((item) => (
+        <div>
+          <Icon name={item.icon} class="w-5 h-5 text-[var(--color-accent)] mb-3" />
+          <h3 class="font-semibold text-[var(--color-text-heading)] mb-2">{item.title}</h3>
+          <p class="text-sm text-[var(--color-muted)] leading-relaxed">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {/* ===== GRADIENT (Moderno — fundo gradiente) ===== */}
+  {variant === "gradient" && (
+    <div class="mx-auto px-6 max-w-6xl grid sm:grid-cols-2 lg:grid-cols-3 gap-5 stagger">
+      {sinais.items.map((item) => (
+        <div class="p-6 bg-gradient-to-br from-[var(--color-surface)] to-[var(--color-bg-alt)] border border-[var(--color-border)] hover:shadow-lg transition-shadow card-lift" style="border-radius: var(--radius-lg)">
+          <div class="w-10 h-10 flex items-center justify-center bg-[var(--color-accent)]/15 mb-4" style="border-radius: var(--radius)">
+            <Icon name={item.icon} class="w-5 h-5 text-[var(--color-accent)]" />
+          </div>
+          <h3 class="font-semibold text-[var(--color-text-heading)] mb-2">{item.title}</h3>
+          <p class="text-sm text-[var(--color-muted)] leading-relaxed">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {/* ===== ICON-LEFT (Institucional — horizontal compacto) ===== */}
+  {variant === "icon-left" && (
+    <div class="mx-auto px-6 max-w-6xl grid sm:grid-cols-2 gap-4 stagger">
+      {sinais.items.map((item) => (
+        <div class="flex gap-4 p-5 bg-[var(--color-surface)] border border-[var(--color-border)] card-lift" style="border-radius: var(--radius-lg)">
+          <Icon name={item.icon} class="w-5 h-5 text-[var(--color-accent)] mt-0.5 shrink-0" />
+          <div>
+            <h3 class="font-semibold text-[var(--color-text-heading)] mb-1">{item.title}</h3>
+            <p class="text-sm text-[var(--color-muted)] leading-relaxed">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {/* ===== CLUSTERED (Nyres — card tipográfico com título + descrição, sem ícone) ===== */}
+  {variant === "clustered" && (
+    <div class="mx-auto px-6 max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-6 stagger">
+      {sinais.items.map((item) => (
+        <div class="bg-[var(--color-surface)] border border-[var(--color-border)] p-8 card-lift" style="border-radius: var(--radius-lg)">
+          <h3 class="text-[var(--color-accent)] font-semibold text-lg mb-4">{item.title}</h3>
+          <p class="text-[var(--color-muted)] leading-relaxed">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {/* ===== IMAGE-CARD (card com foto do procedimento — 3 cols para 5+, 2 cols para 4) ===== */}
+  {variant === "image-card" && (
+    <div class:list={[
+      "mx-auto px-6 max-w-6xl grid sm:grid-cols-2 gap-6 stagger",
+      sinais.items.length > 4 && "lg:grid-cols-3"
+    ]}>
+      {sinais.items.map((item) => (
+        <div class="group overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] card-lift" style="border-radius: var(--radius-lg)">
+          {item.image && (
+            <div class="overflow-hidden aspect-[3/2]">
+              <img
+                src={item.image}
+                alt={item.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          )}
+          <div class="p-5">
+            <h3 class="font-semibold text-[var(--color-text-heading)] mb-1.5">{item.title}</h3>
+            <p class="text-sm text-[var(--color-muted)] leading-relaxed">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {/* ===== IMAGE-HORIZONTAL (Moderno — imagem esquerda, texto direita) ===== */}
+  {variant === "image-horizontal" && (
+    <div class="mx-auto px-6 max-w-5xl flex flex-col gap-5 stagger">
+      {sinais.items.map((item) => (
+        <div class="group flex flex-col sm:flex-row overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] card-lift" style="border-radius: var(--radius-lg)">
+          {item.image && (
+            <div class="overflow-hidden sm:w-64 shrink-0 aspect-[3/2] sm:aspect-auto">
+              <img
+                src={item.image}
+                alt={item.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          )}
+          <div class="p-6 flex flex-col justify-center">
+            <h3 class="font-semibold text-lg text-[var(--color-text-heading)] mb-2">{item.title}</h3>
+            <p class="text-sm text-[var(--color-muted)] leading-relaxed">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+</section>

@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "theme": "clean",
+    "title": "Dra. Marina Alves — Dermatologista",
+    "description": "Dermatologista em São Paulo. Cuidado completo da pele com tecnologia e acolhimento. Dra. Marina Alves, CRM/SP 184.520.",
+    "whatsapp": "",
+    "instagram": "@dramarinaalvesdermato"
+  },
+  "doctor": {
+    "displayName": "Dra. Marina Alves",
+    "crm": "CRM/SP 184.520",
+    "specialty": "Dermatologista",
+    "city": "São Paulo",
+    "address": "Rua Oscar Freire, 2.140 - Sala 804, Jardins, São Paulo - SP",
+    "about": {
+      "formation": "Graduada pela USP, residência em Dermatologia no Hospital das Clínicas. Membro titular da Sociedade Brasileira de Dermatologia (SBD).",
+      "trajectory": "Há 10 anos cuidando da saúde e beleza da pele com protocolos personalizados. Mais de 8.000 pacientes atendidos.",
+      "experience": "10 anos",
+      "patientsServed": "Mais de 8.000"
+    },
+    "differentials": [
+      "Protocolos personalizados para cada tipo de pele",
+      "Tecnologia de ponta em laser e luz pulsada",
+      "Acompanhamento contínuo com dermatoscopia digital",
+      "Atendimento humanizado e sem pressa"
+    ],
+    "photo": "/images/doctor-clean.jpg"
+  },
+  "sections": {
+    "order": [
+      "header", "hero", "sobre", "especialidades", "sinais",
+      "diferenciais", "comoFunciona", "depoimentos", "localizacao",
+      "faq", "ctaFinal", "footer"
+    ],
+    "hero": {
+      "badge": "Dermatologista · CRM/SP 184.520",
+      "headline": "Sua pele merece",
+      "highlightWord": "cuidado de verdade",
+      "subheadline": "Dermatologia clínica e estética com tecnologia avançada, protocolos personalizados e acompanhamento contínuo.",
+      "ctaText": "Agendar Consulta",
+      "secondaryCta": { "text": "Conheça os tratamentos", "href": "#especialidades" },
+      "stats": [
+        { "value": "10", "label": "Anos de Experiência" },
+        { "value": "8.000+", "label": "Pacientes Atendidos" },
+        { "value": "98%", "label": "Satisfação" }
+      ]
+    },
+    "sinais": {
+      "sectionTitle": "Tratamentos mais procurados",
+      "sectionSubtitle": "Protocolos desenvolvidos para resultados visíveis e duradouros, respeitando a individualidade da sua pele.",
+      "items": [
+        { "icon": "botox", "title": "Toxina botulínica", "description": "Suaviza linhas de expressão com resultado rápido e natural.", "image": "/images/clean_toxina-botulinica.jpg" },
+        { "icon": "syringe", "title": "Preenchimento facial", "description": "Recupera volume e harmoniza contornos do rosto com naturalidade.", "image": "/images/clean_preenchimento-facial.jpg" },
+        { "icon": "laser", "title": "Laser para manchas", "description": "Uniformiza textura, poros e tom da pele com tecnologia avançada.", "image": "/images/clean_laser-manchas.jpg" },
+        { "icon": "skincare", "title": "Bioestimuladores", "description": "Melhora firmeza e qualidade da pele ao longo do tempo.", "image": "/images/clean_bioestimuladores.jpg" }
+      ]
+    },
+    "especialidades": {
+      "sectionTitle": "Áreas de Atuação",
+      "items": [
+        { "icon": "skin-clinical", "name": "Dermatologia Clínica", "description": "Acne, eczema, psoríase, alergias e infecções de pele." },
+        { "icon": "skin-aesthetic", "name": "Dermatologia Estética", "description": "Rejuvenescimento, manchas, cicatrizes e harmonização." },
+        { "icon": "hair", "name": "Tricologia", "description": "Queda capilar, alopecia e tratamentos para couro cabeludo." },
+        { "icon": "shield-check", "name": "Prevenção de Câncer de Pele", "description": "Dermatoscopia, mapeamento corporal e biópsia." }
+      ]
+    },
+    "diferenciais": {
+      "sectionTitle": "Por que a Dra. Marina",
+      "items": [
+        { "icon": "heart-handshake", "title": "Atendimento sem pressa", "description": "Consultas de 40 minutos com escuta ativa e avaliação completa." },
+        { "icon": "microscope", "title": "Tecnologia de ponta", "description": "Equipamentos de última geração para diagnóstico e tratamento." },
+        { "icon": "clipboard", "title": "Protocolo personalizado", "description": "Cada pele é única — seu tratamento também será." },
+        { "icon": "refresh", "title": "Acompanhamento contínuo", "description": "Retornos programados para ajustar e evoluir seu protocolo." }
+      ]
+    },
+    "comoFunciona": {
+      "sectionTitle": "Como funciona",
+      "steps": [
+        { "number": "01", "title": "Avaliação completa", "description": "Análise detalhada da sua pele com dermatoscopia digital e anamnese personalizada." },
+        { "number": "02", "title": "Protocolo sob medida", "description": "Plano de tratamento desenhado para seus objetivos, rotina e tipo de pele." },
+        { "number": "03", "title": "Tratamento", "description": "Procedimentos em ambiente seguro, com tecnologia avançada e conforto." },
+        { "number": "04", "title": "Acompanhamento", "description": "Retornos regulares para avaliar resultados e ajustar o protocolo conforme sua evolução." }
+      ]
+    },
+    "depoimentos": {
+      "sectionTitle": "O que dizem minhas pacientes",
+      "items": [
+        { "name": "Juliana P.", "text": "A Dra. Marina mudou minha relação com minha pele. Depois de anos lutando com acne, finalmente encontrei alguém que realmente entendeu meu caso.", "rating": 5 },
+        { "name": "Renata S.", "text": "O tratamento de manchas superou todas as minhas expectativas. Em 3 sessões já vi diferença. A clínica é impecável.", "rating": 5 },
+        { "name": "Camila M.", "text": "Adoro que ela explica tudo com calma. Me sinto segura e bem cuidada. Recomendo pra todo mundo.", "rating": 5 },
+        { "name": "Fernanda L.", "text": "A dermatoscopia digital me deu uma tranquilidade enorme. Profissionalismo e cuidado em cada detalhe.", "rating": 5 }
+      ]
+    },
+    "localizacao": {
+      "sectionTitle": "Localização",
+      "address": "Rua Oscar Freire, 2.140 - Sala 804, Jardins, São Paulo - SP",
+      "mapQuery": "Rua+Oscar+Freire+2140+Jardins+Sao+Paulo",
+      "details": [
+        "Estacionamento conveniado no prédio",
+        "Próximo ao metrô Oscar Freire",
+        "Atendimento com hora marcada"
+      ]
+    },
+    "faq": {
+      "sectionTitle": "Perguntas Frequentes",
+      "items": [
+        { "question": "Preciso de encaminhamento para consultar?", "answer": "Não. Você pode agendar diretamente pelo WhatsApp ou telefone. Atendemos particular e reembolso." },
+        { "question": "Quanto tempo dura a consulta?", "answer": "As consultas têm duração média de 40 minutos, garantindo tempo para avaliação completa, escuta e orientações detalhadas." },
+        { "question": "Qual a frequência ideal de retorno?", "answer": "Depende do tratamento. Em geral, retornos a cada 30-60 dias para acompanhamento. Orientamos caso a caso na primeira consulta." },
+        { "question": "O tratamento de manchas dói?", "answer": "Os procedimentos a laser podem causar leve desconforto, mas usamos anestesia tópica quando necessário. A maioria dos pacientes tolera muito bem." },
+        { "question": "Vocês atendem convênio?", "answer": "Atendemos apenas particular, com possibilidade de reembolso pelo seu plano. Emitimos nota fiscal e relatório para solicitar ao convênio." },
+        { "question": "Posso fazer procedimentos estéticos e clínicos juntos?", "answer": "Sim, inclusive é o ideal. Muitas vezes o tratamento estético complementa o clínico. Na consulta, montamos um protocolo integrado." }
+      ]
+    },
+    "videos": {
+      "sectionTitle": "Conteúdo nas redes",
+      "sectionSubtitle": "Dicas, bastidores e informação sobre saúde da pele.",
+      "items": [
+        { "thumbnail": "/images/placeholder-doctor.svg", "title": "3 sinais de que sua pele precisa de um dermatologista", "url": "#", "platform": "instagram" },
+        { "thumbnail": "/images/placeholder-doctor.svg", "title": "Protetor solar: mitos e verdades", "url": "#", "platform": "instagram" },
+        { "thumbnail": "/images/placeholder-doctor.svg", "title": "Antes e depois: tratamento de melasma", "url": "#", "platform": "instagram" }
+      ]
+    },
+    "ctaFinal": {
+      "headline": "Cuide da sua pele com quem entende",
+      "subheadline": "Agende sua avaliação. Sem compromisso — vamos conversar sobre o que sua pele precisa.",
+      "ctaText": "Agendar pelo WhatsApp"
+    },
+    "footer": {
+      "copyright": "Dra. Marina Alves — CRM/SP 184.520. Responsável Técnica."
+    }
+  }
+}

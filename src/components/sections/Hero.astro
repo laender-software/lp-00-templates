@@ -8,7 +8,8 @@ interface Props {
   variant?: "split" | "centered" | "fullimage" | "split-reverse" | "cinematic";
 }
 
-const { hero, photo, whatsapp, variant = "split" } = Astro.props;
+const { hero: heroRaw, photo, whatsapp, variant = "split" } = Astro.props;
+const hero = heroRaw as Persona["sections"]["hero"];
 const whatsappLink = whatsapp ? `https://wa.me/${whatsapp}` : "#";
 
 const isSplit = variant === "split" || variant === "split-reverse";
@@ -213,7 +214,7 @@ function parseStat(value: string) {
 
 {/* ===== CINEMATIC (Institucional — dark immersive hero with floating photos) ===== */}
 {variant === "cinematic" && (
-  <section class="relative min-h-[85svh] flex items-center overflow-hidden" id="hero" style="background: #0F1D2F;">
+  <section class="relative min-h-[65svh] flex items-center overflow-hidden" id="hero" style="background: #0F1D2F;">
     {/* Subtle grid lines */}
     <div class="pointer-events-none absolute inset-0 opacity-[0.03]" aria-hidden="true">
       <div class="absolute top-0 left-1/4 w-px h-full bg-white"></div>
@@ -221,19 +222,6 @@ function parseStat(value: string) {
       <div class="absolute top-0 left-3/4 w-px h-full bg-white"></div>
       <div class="absolute top-1/3 left-0 w-full h-px bg-white"></div>
       <div class="absolute top-2/3 left-0 w-full h-px bg-white"></div>
-    </div>
-
-    {/* Floating photos — decorative clinic images */}
-    <div class="pointer-events-none absolute inset-0 hidden md:block" aria-hidden="true">
-      <div class="absolute bottom-24 left-8 w-28 h-20 bg-white/5 border border-white/10 overflow-hidden" style="border-radius: var(--radius-lg); transform: rotate(-3deg);">
-        <img src="/images/institucional-recepcao.jpg" alt="" class="w-full h-full object-cover opacity-60" loading="eager" />
-      </div>
-      <div class="absolute top-24 right-12 w-32 h-24 bg-white/5 border border-white/10 overflow-hidden" style="border-radius: var(--radius-lg); transform: rotate(2deg);">
-        <img src="/images/institucional-laboratorio.jpg" alt="" class="w-full h-full object-cover opacity-60" loading="eager" />
-      </div>
-      <div class="absolute bottom-32 right-24 w-24 h-20 bg-white/5 border border-white/10 overflow-hidden" style="border-radius: var(--radius-lg); transform: rotate(-1deg);">
-        <img src="/images/institucional-consultorio.jpg" alt="" class="w-full h-full object-cover opacity-60" loading="eager" />
-      </div>
     </div>
 
     {/* Content */}
@@ -269,30 +257,19 @@ function parseStat(value: string) {
       </div>
     </div>
 
-    {/* Stats bar at bottom */}
-    {hero.stats && hero.stats.length > 0 && (
+    {/* Trust badges bar at bottom */}
+    {(hero as any).badges && (hero as any).badges.length > 0 && (
       <div class="absolute bottom-0 left-0 right-0 border-t border-white/10">
-        <div class="mx-auto max-w-4xl grid gap-0 divide-x divide-white/10" style={`grid-template-columns: repeat(${hero.stats.length}, minmax(0, 1fr))`}>
-          {hero.stats.map((stat) => (
-            <div class="text-center py-6 reveal">
-              <span class="font-[var(--font-heading)] text-2xl md:text-3xl font-semibold text-white"
-                data-counter={parseStat(stat.value).number}
-                data-prefix={parseStat(stat.value).prefix}
-                data-suffix={parseStat(stat.value).suffix}
-              >
-                {stat.value}
-              </span>
-              <p class="text-slate-500 text-xs mt-1 uppercase tracking-wider">{stat.label}</p>
+        <div class="mx-auto max-w-4xl flex items-center justify-center gap-6 md:gap-10 py-5 px-6">
+          {(hero as any).badges.map((badge: { label: string }) => (
+            <div class="flex items-center gap-2 text-slate-400">
+              <svg class="w-4 h-4 text-[var(--color-accent)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              <span class="text-xs md:text-sm font-medium uppercase tracking-wider">{badge.label}</span>
             </div>
           ))}
         </div>
       </div>
     )}
 
-    {/* Scroll indicator */}
-    <div class="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-pulse">
-      <span class="text-slate-500 text-[0.65rem] uppercase tracking-[0.2em]">Explorar</span>
-      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-    </div>
   </section>
 )}

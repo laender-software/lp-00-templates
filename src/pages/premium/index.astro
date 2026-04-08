@@ -2,8 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/sections/Header.astro";
 import Hero from "../../components/sections/Hero.astro";
-import Estrutura from "../../components/sections/Estrutura.astro";
-import Equipe from "../../components/sections/Equipe.astro";
+import Sobre from "../../components/sections/Sobre.astro";
+import Sinais from "../../components/sections/Sinais.astro";
 import Especialidades from "../../components/sections/Especialidades.astro";
 import Diferenciais from "../../components/sections/Diferenciais.astro";
 import ComoFunciona from "../../components/sections/ComoFunciona.astro";
@@ -14,35 +14,33 @@ import CTAFinal from "../../components/sections/CTAFinal.astro";
 import Footer from "../../components/sections/Footer.astro";
 import WhatsAppButton from "../../components/sections/WhatsAppButton.astro";
 
-import persona from "../../data/personas/institucional.json";
+import persona from "../../data/personas/premium.json";
 import type { Persona } from "../../data/types";
 
-const data = persona as unknown as Persona;
+const data = persona as Persona;
 const s = data.sections;
 ---
 
 <Layout persona={data}>
   <Header
-    variant="minimal"
     doctorName={data.doctor.displayName}
     whatsapp={data.meta.whatsapp}
   />
 
   <main id="main-content">
-    <Hero variant="cinematic" hero={s.hero} whatsapp={data.meta.whatsapp} />
-    <Estrutura estrutura={s.estrutura!} bgColor="default" />
-    <Equipe equipe={s.equipe!} bgColor="alt" />
-    <Especialidades variant="icon-left" especialidades={s.especialidades} bgColor="default" />
-    <Diferenciais variant="split-photo" diferenciais={s.diferenciais} bgColor="alt" photo="/images/institucional-laboratorio.jpg" />
-    <ComoFunciona variant="cards" comoFunciona={s.comoFunciona} bgColor="default" />
-    <Depoimentos variant="grid" depoimentos={s.depoimentos} bgColor="alt" />
-    <Localizacao localizacao={s.localizacao} bgColor="default" />
-    <FAQ variant="two-column" faq={s.faq} bgColor="alt" />
-    <CTAFinal variant="split-cta" ctaFinal={s.ctaFinal} whatsapp={data.meta.whatsapp} />
+    <Hero variant="split" hero={s.hero} photo={data.doctor.photo} whatsapp={data.meta.whatsapp} />
+    <Sobre variant="split" doctor={data.doctor} photoOverride="/images/doctor-premium-sobre.jpg" />
+    <Especialidades variant="bordered" especialidades={s.especialidades} />
+    <Sinais variant="image-card" sinais={s.sinais} />
+    <Diferenciais variant="border-left" diferenciais={s.diferenciais} />
+    <ComoFunciona comoFunciona={s.comoFunciona} />
+    <Depoimentos variant="grid" depoimentos={s.depoimentos} />
+    <Localizacao localizacao={s.localizacao} />
+    <FAQ faq={s.faq} />
+    <CTAFinal variant="solid-bg" ctaFinal={s.ctaFinal} whatsapp={data.meta.whatsapp} />
   </main>
 
   <Footer
-    variant="columns"
     footer={s.footer}
     doctor={data.doctor}
     instagram={data.meta.instagram}

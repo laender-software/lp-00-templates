@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "theme": "acolhedor",
+    "title": "Dra. Camila Ribeiro — Ginecologista e Obstetra",
+    "description": "Ginecologista e obstetra em Curitiba. Saúde da mulher com acolhimento, escuta e cuidado personalizado. Dra. Camila Ribeiro, CRM/PR 38.412.",
+    "whatsapp": "",
+    "instagram": "@dracamilaribeirogineco",
+    "email": "contato@dracamilaribeiro.com.br"
+  },
+  "doctor": {
+    "displayName": "Dra. Camila Ribeiro",
+    "crm": "CRM/PR 38.412",
+    "specialty": "Ginecologista e Obstetra",
+    "city": "Curitiba",
+    "address": "Rua Comendador Araújo, 560 - Sala 601, Batel, Curitiba - PR",
+    "about": {
+      "formation": "Graduada pela UFPR, residência em Ginecologia e Obstetrícia no Hospital de Clínicas. Especialização em Reprodução Humana pela FEBRASGO.",
+      "trajectory": "Há 12 anos cuidando da saúde da mulher em todas as fases da vida. Do primeiro ciclo à menopausa, com escuta ativa e respeito à individualidade de cada paciente.",
+      "experience": "12 anos",
+      "patientsServed": "Mais de 6.000"
+    },
+    "differentials": [
+      "Consultas sem pressa com escuta ativa e acolhimento",
+      "Pré-natal humanizado com acompanhamento personalizado",
+      "Abordagem integrativa para saúde hormonal",
+      "Atendimento em ambiente tranquilo e acolhedor"
+    ],
+    "photo": "/images/doctor-acolhedor.jpg"
+  },
+  "sections": {
+    "order": [
+      "header", "hero", "sobre", "especialidades", "sinais",
+      "diferenciais", "comoFunciona", "depoimentos", "localizacao",
+      "faq", "ctaFinal", "footer"
+    ],
+    "hero": {
+      "badge": "Ginecologista e Obstetra · CRM/PR 38.412",
+      "headline": "Saúde da mulher com",
+      "highlightWord": "acolhimento de verdade",
+      "subheadline": "Ginecologia e obstetrícia com escuta ativa, respeito ao seu tempo e cuidado personalizado em cada fase da vida.",
+      "ctaText": "Agendar Consulta",
+      "secondaryCta": { "text": "Conheça os serviços", "href": "#especialidades" },
+      "stats": []
+    },
+    "sinais": {
+      "sectionTitle": "Cuidados que fazem diferença",
+      "sectionSubtitle": "Acompanhamento completo para a saúde da mulher em todas as fases — da adolescência à maturidade.",
+      "items": [
+        { "icon": "gynecology", "title": "Consulta preventiva", "description": "Acompanhamento da saúde da mulher com escuta e cuidado em cada fase da vida.", "image": "/images/acolhedor-consulta-preventiva.jpg" },
+        { "icon": "prenatal", "title": "Pré-natal humanizado", "description": "Gestação acompanhada com segurança, carinho e atenção a cada detalhe.", "image": "/images/acolhedor-pre-natal.jpg" },
+        { "icon": "obstetrics", "title": "Parto e obstetrícia", "description": "Suporte completo para uma das fases mais importantes da sua vida.", "image": "/images/acolhedor-parto-obstetricia.jpg" },
+        { "icon": "wellness", "title": "Saúde íntima e bem-estar", "description": "Cuidado delicado para conforto, confiança e qualidade de vida.", "image": "/images/acolhedor-saude-intima.jpg" }
+      ]
+    },
+    "especialidades": {
+      "sectionTitle": "Áreas de Atuação",
+      "items": [
+        { "icon": "obstetrics", "name": "Obstetrícia", "description": "Pré-natal, parto humanizado e pós-parto com acompanhamento completo." },
+        { "icon": "gynecology", "name": "Ginecologia Clínica", "description": "Prevenção, diagnóstico e tratamento das doenças ginecológicas." },
+        { "icon": "reproductive", "name": "Reprodução Humana", "description": "Investigação de infertilidade e orientação para tratamentos." },
+        { "icon": "wellness", "name": "Saúde Integrativa", "description": "Abordagem que combina medicina convencional com cuidado integral." }
+      ]
+    },
+    "diferenciais": {
+      "sectionTitle": "Por que escolher a Dra. Camila",
+      "items": [
+        { "icon": "heart-handshake", "title": "Consulta sem pressa", "description": "Consultas de 50 minutos com escuta ativa e atenção ao que você sente." },
+        { "icon": "baby", "title": "Pré-natal acolhedor", "description": "Acompanhamento gestacional com empatia, informação e segurança." },
+        { "icon": "leaf", "title": "Abordagem integrativa", "description": "Unimos medicina baseada em evidência com cuidado holístico." },
+        { "icon": "calendar", "title": "Acompanhamento contínuo", "description": "Retornos programados e acesso facilitado para dúvidas entre consultas." }
+      ]
+    },
+    "comoFunciona": {
+      "sectionTitle": "Como é a sua consulta",
+      "steps": [
+        { "number": "01", "title": "Agendamento", "description": "Escolha o melhor horário pelo WhatsApp. Resposta em até 2 horas em horário comercial." },
+        { "number": "02", "title": "Conversa inicial", "description": "Na consulta, conversamos sobre sua história, queixas e expectativas sem pressa." },
+        { "number": "03", "title": "Avaliação completa", "description": "Exame clínico e solicitação dos exames necessários para seu cuidado." },
+        { "number": "04", "title": "Plano de cuidado", "description": "Montamos juntas um plano de tratamento e acompanhamento personalizado." }
+      ]
+    },
+    "depoimentos": {
+      "sectionTitle": "O que dizem minhas pacientes",
+      "items": [
+        { "name": "Beatriz A.", "text": "A Dra. Camila transformou minha experiência de pré-natal. Me senti ouvida, respeitada e segura do começo ao fim. Meu parto foi exatamente como eu desejava.", "rating": 5 },
+        { "name": "Larissa M.", "text": "Depois de anos sofrendo com SOP sem respostas, finalmente encontrei uma médica que olhou pra mim como um todo. O tratamento mudou minha qualidade de vida.", "rating": 5 },
+        { "name": "Mariana C.", "text": "O consultório é um oásis de tranquilidade. A Dra. Camila explica tudo com calma e você sai da consulta entendendo exatamente o que está acontecendo.", "rating": 5 },
+        { "name": "Fernanda R.", "text": "Recomendo de coração. É raro encontrar uma ginecologista que combine tanta competência técnica com tanta humanidade no atendimento.", "rating": 5 }
+      ]
+    },
+    "localizacao": {
+      "sectionTitle": "Localização",
+      "address": "Rua Comendador Araújo, 560 - Sala 601, Batel, Curitiba - PR",
+      "mapQuery": "Rua+Comendador+Araujo+560+Batel+Curitiba+PR",
+      "details": [
+        "Estacionamento rotativo em frente ao prédio",
+        "Próximo ao Shopping Crystal",
+        "Atendimento com hora marcada"
+      ]
+    },
+    "faq": {
+      "sectionTitle": "Perguntas Frequentes",
+      "items": [
+        { "question": "A primeira consulta é demorada?", "answer": "Sim, reservamos 50 minutos para a primeira consulta. É importante conhecer sua história completa para oferecer o melhor cuidado. As consultas de retorno são de 30 minutos." },
+        { "question": "Vocês fazem parto?", "answer": "Sim. Acompanho partos humanizados em maternidades parceiras em Curitiba. O tipo de parto é decidido em conjunto, respeitando suas preferências e a segurança do bebê." },
+        { "question": "Atendem adolescentes?", "answer": "Sim, atendemos a partir dos 12 anos. A primeira consulta ginecológica é um momento importante e conduzimos com acolhimento e respeito ao ritmo da paciente." },
+        { "question": "Qual o valor da consulta?", "answer": "Os valores são informados no agendamento. Atendemos particular e alguns convênios. Entre em contato pelo WhatsApp para verificar." },
+        { "question": "Posso tirar dúvidas entre consultas?", "answer": "Sim, temos canal de comunicação para dúvidas pontuais entre consultas. Para questões que exijam avaliação, agendamos um retorno." },
+        { "question": "O consultório é acessível?", "answer": "Sim, o prédio possui elevador, rampa de acesso e banheiro adaptado. Nos preocupamos com o conforto e acessibilidade de todas as pacientes." }
+      ]
+    },
+    "ctaFinal": {
+      "headline": "Cuide de você com quem te escuta",
+      "subheadline": "Agende sua consulta. Sem pressa, sem julgamento — um espaço seguro para cuidar da sua saúde.",
+      "ctaText": "Agendar pelo WhatsApp"
+    },
+    "footer": {
+      "copyright": "Dra. Camila Ribeiro — CRM/PR 38.412. Responsável Técnica."
+    }
+  }
+}

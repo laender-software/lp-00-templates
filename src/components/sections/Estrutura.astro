@@ -13,7 +13,7 @@ const sectionBg = bgColor === "alt" ? "bg-[var(--color-bg-alt)]" : "bg-[var(--co
 <section class:list={["py-20 md:py-28", sectionBg]} id="estrutura">
   <div class="mx-auto px-6 max-w-6xl">
     <div class="text-center mb-12">
-      <p class="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-4">Estrutura</p>
+      <p class="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-4">Nossa Estrutura</p>
       <h2 class="font-[var(--font-heading)] text-3xl md:text-4xl font-semibold text-[var(--color-text-heading)]">{estrutura.sectionTitle}</h2>
       {estrutura.sectionSubtitle && (
         <p class="text-[var(--color-muted)] mt-4 max-w-2xl mx-auto">{estrutura.sectionSubtitle}</p>
@@ -36,7 +36,7 @@ const sectionBg = bgColor === "alt" ? "bg-[var(--color-bg-alt)]" : "bg-[var(--co
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-5">
             <p class="text-white font-semibold text-lg">{item.title}</p>
             <p class="text-white/70 text-sm mt-1">{item.description}</p>
@@ -46,7 +46,7 @@ const sectionBg = bgColor === "alt" ? "bg-[var(--color-bg-alt)]" : "bg-[var(--co
     </div>
 
     {/* Mobile: Horizontal carousel */}
-    <div class="flex md:hidden gap-4 overflow-x-auto scroll-snap-x pb-4 -mx-6 px-6" style="-webkit-overflow-scrolling: touch; scrollbar-width: none;">
+    <div class="flex md:hidden gap-4 overflow-x-auto scroll-snap-x pb-4" style="-webkit-overflow-scrolling: touch; scrollbar-width: none;">
       {estrutura.items.map((item) => (
         <div
           class="relative overflow-hidden shrink-0 snap-start"
@@ -58,7 +58,7 @@ const sectionBg = bgColor === "alt" ? "bg-[var(--color-bg-alt)]" : "bg-[var(--co
             class="w-full h-full object-cover"
             loading="lazy"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-5">
             <p class="text-white font-semibold text-lg">{item.title}</p>
             <p class="text-white/70 text-sm mt-1">{item.description}</p>

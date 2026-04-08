@@ -1,0 +1,18 @@
+[data-theme="premium"] {
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Lato", system-ui, sans-serif;
+
+  --color-primary: #1B2A3D;
+  --color-accent: #C9A96E;
+  --color-bg: #0F1419;
+  --color-bg-alt: #131A22;
+  --color-surface: #1A2332;
+  --color-text: #E5E7EB;
+  --color-text-heading: #FFFFFF;
+  --color-muted: #9CA3AF;
+  --color-border: #2A3544;
+
+  --radius: 2px;
+  --radius-lg: 4px;
+  --radius-full: 9999px;
+}

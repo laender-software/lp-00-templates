@@ -40,15 +40,16 @@
       "subheadline": "Centro médico completo com mais de 15 especialidades, diagnóstico próprio e equipe integrada. Seu cuidado com saúde simplificado.",
       "ctaText": "Agendar Consulta",
       "secondaryCta": { "text": "Nossas especialidades", "href": "#especialidades" },
-      "stats": [
-        { "value": "15+", "label": "Especialidades" },
-        { "value": "50.000+", "label": "Pacientes Atendidos" },
-        { "value": "18", "label": "Anos de Atuação" }
+      "badges": [
+        { "label": "CNES Ativo" },
+        { "label": "ISO 9001" },
+        { "label": "Anvisa" },
+        { "label": "4.9 ★ Google" }
       ]
     },
     "estrutura": {
-      "sectionTitle": "Nossa Estrutura",
-      "sectionSubtitle": "Tecnologia e conforto a serviço da sua saúde",
+      "sectionTitle": "Tecnologia e conforto a serviço da sua saúde",
+      "sectionSubtitle": "Espaços projetados para diagnóstico preciso e atendimento humanizado.",
       "items": [
         { "image": "/images/institucional-recepcao.jpg", "title": "Recepção", "description": "Ambiente moderno e acolhedor para pacientes e acompanhantes" },
         { "image": "/images/institucional-laboratorio.jpg", "title": "Centro Diagnóstico", "description": "Exames laboratoriais e de imagem com resultados em 24h" },
@@ -56,8 +57,8 @@
       ]
     },
     "equipe": {
-      "sectionTitle": "Nossa Equipe",
-      "sectionSubtitle": "Profissionais com formação nas melhores instituições do país",
+      "sectionTitle": "Quem cuida de você",
+      "sectionSubtitle": "Profissionais com formação nas melhores instituições do país.",
       "members": [
         {
           "name": "Dr. Marcos Oliveira",
@@ -114,7 +115,7 @@
       ]
     },
     "especialidades": {
-      "sectionTitle": "Nossas Especialidades",
+      "sectionTitle": "Mais de 15 especialidades em um só endereço",
       "items": [
         { "icon": "stethoscope", "name": "Clínica Médica", "description": "Avaliação geral, acompanhamento de doenças crônicas e check-up." },
         { "icon": "cardiology", "name": "Cardiologia", "description": "Prevenção e tratamento de doenças cardiovasculares." },

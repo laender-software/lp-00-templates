@@ -1,0 +1,50 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/sections/Header.astro";
+import Hero from "../../components/sections/Hero.astro";
+import Sobre from "../../components/sections/Sobre.astro";
+import Sinais from "../../components/sections/Sinais.astro";
+import Diferenciais from "../../components/sections/Diferenciais.astro";
+import ComoFunciona from "../../components/sections/ComoFunciona.astro";
+import Depoimentos from "../../components/sections/Depoimentos.astro";
+import Localizacao from "../../components/sections/Localizacao.astro";
+import FAQ from "../../components/sections/FAQ.astro";
+import CTAFinal from "../../components/sections/CTAFinal.astro";
+import Footer from "../../components/sections/Footer.astro";
+import WhatsAppButton from "../../components/sections/WhatsAppButton.astro";
+
+import persona from "../../data/personas/moderno.json";
+import type { Persona } from "../../data/types";
+
+const data = persona as Persona;
+const s = data.sections;
+---
+
+<Layout persona={data}>
+  <Header
+    doctorName={data.doctor.displayName}
+    whatsapp={data.meta.whatsapp}
+  />
+
+  <main id="main-content">
+    <Hero variant="split-reverse" hero={s.hero} photo={data.doctor.photo} whatsapp={data.meta.whatsapp} />
+    <Sinais variant="image-card" sinais={s.sinais} />
+    <Sobre variant="side-by-side" doctor={data.doctor} photoOverride="/images/doctor-moderno-sobre.jpg" />
+    <Diferenciais variant="numbered" diferenciais={s.diferenciais} />
+    <ComoFunciona variant="horizontal" comoFunciona={s.comoFunciona} />
+    <Depoimentos variant="carousel" depoimentos={s.depoimentos} />
+    <Localizacao localizacao={s.localizacao} />
+    <FAQ faq={s.faq} />
+    <CTAFinal variant="gradient-bg" ctaFinal={s.ctaFinal} whatsapp={data.meta.whatsapp} />
+  </main>
+
+  <Footer
+    variant="split"
+    footer={s.footer}
+    doctor={data.doctor}
+    instagram={data.meta.instagram}
+    email={data.meta.email}
+  />
+
+  <WhatsAppButton whatsapp={data.meta.whatsapp} />
+</Layout>

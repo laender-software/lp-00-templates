@@ -1,0 +1,583 @@
+---
+import Hero from "../../components/sections/Hero.astro";
+import Sobre from "../../components/sections/Sobre.astro";
+import Especialidades from "../../components/sections/Especialidades.astro";
+import Sinais from "../../components/sections/Sinais.astro";
+import Diferenciais from "../../components/sections/Diferenciais.astro";
+import ComoFunciona from "../../components/sections/ComoFunciona.astro";
+import Depoimentos from "../../components/sections/Depoimentos.astro";
+import FAQ from "../../components/sections/FAQ.astro";
+import CTAFinal from "../../components/sections/CTAFinal.astro";
+import Footer from "../../components/sections/Footer.astro";
+import Videos from "../../components/sections/Videos.astro";
+import Icon from "../../components/ui/Icon.astro";
+
+import premiumData from "../../data/personas/premium.json";
+import cleanData from "../../data/personas/clean.json";
+import acolhedorData from "../../data/personas/acolhedor.json";
+import modernoData from "../../data/personas/moderno.json";
+import institucionalData from "../../data/personas/institucional.json";
+import type { Persona } from "../../data/types";
+
+const premium = premiumData as Persona;
+const clean = cleanData as Persona;
+const acolhedor = acolhedorData as Persona;
+const moderno = modernoData as Persona;
+const institucional = institucionalData as Persona;
+
+// Sample data for icon showcase
+const allIcons = [
+  // Cirurgia plástica
+  "face", "body", "breast", "aesthetic", "rhinoplasty", "lifting", "lipo", "mammoplasty", "abdominoplasty", "botox",
+  // Dermato
+  "skincare", "laser", "syringe", "scan", "sun", "skin-clinical", "skin-aesthetic", "hair", "shield-check",
+  // Gineco
+  "prenatal", "hormones", "contraception", "menopause", "breast-health", "fertility", "obstetrics", "gynecology", "reproductive", "wellness",
+  // Odonto
+  "implant", "protocol", "immediate-load", "guided-surgery", "bone-graft", "dental-crown", "digital-dentistry", "dental-aesthetics", "dental-surgery",
+  // Institucional
+  "checkup", "cardiology", "orthopedics", "pediatrics", "endocrinology", "lab", "neurology",
+  // Generic
+  "heart-handshake", "microscope", "target", "hospital", "clipboard", "clock", "shield", "award", "users", "calendar", "stethoscope", "baby", "leaf",
+];
+---
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Showcase — Componentes e Variantes</title>
+  <link rel="stylesheet" href="/src/styles/global.css" />
+  <style>
+    .showcase-section {
+      border: 2px dashed #cbd5e1;
+      margin: 2rem 0;
+      position: relative;
+    }
+    .showcase-label {
+      position: absolute;
+      top: -14px;
+      left: 24px;
+      background: #1e293b;
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 2px 12px;
+      border-radius: 4px;
+      z-index: 10;
+      font-family: system-ui;
+    }
+    .theme-switcher {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #1e293b;
+      padding: 12px 24px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .theme-switcher a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 14px;
+      font-family: system-ui;
+      padding: 4px 12px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .theme-switcher a:hover {
+      color: white;
+      background: #334155;
+    }
+    .section-heading {
+      font-family: system-ui;
+      font-size: 28px;
+      font-weight: 700;
+      color: #1e293b;
+      padding: 40px 24px 8px;
+      margin: 0;
+    }
+    .section-desc {
+      font-family: system-ui;
+      font-size: 15px;
+      color: #64748b;
+      padding: 0 24px 24px;
+      margin: 0;
+    }
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 12px;
+      padding: 24px;
+    }
+    .icon-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 16px 8px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-family: system-ui;
+      font-size: 11px;
+      color: #64748b;
+      text-align: center;
+    }
+    .icon-card svg, .icon-card [data-icon] {
+      width: 28px;
+      height: 28px;
+      color: #1e293b;
+    }
+  </style>
+</head>
+<body style="margin:0; background:#f1f5f9;">
+
+  <div class="theme-switcher">
+    <span style="color:#94a3b8; font-size:14px; font-family:system-ui; font-weight:600; margin-right:8px;">Showcase</span>
+    <a href="#heroes">Heroes</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#especialidades">Especialidades</a>
+    <a href="#sinais">Sinais</a>
+    <a href="#diferenciais">Diferenciais</a>
+    <a href="#como-funciona">ComoFunciona</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#faq">FAQ</a>
+    <a href="#cta">CTA Final</a>
+    <a href="#footers">Footers</a>
+    <a href="#videos">Vídeos</a>
+    <a href="#icons">Ícones</a>
+    <span style="flex:1"></span>
+    <a href="/">← Templates</a>
+  </div>
+
+  <!-- ==================== HEROES ==================== -->
+  <h2 class="section-heading" id="heroes">Hero</h2>
+  <p class="section-desc">4 variantes de layout para a primeira impressão do site.</p>
+
+  <div data-theme="premium">
+    <div class="showcase-section">
+      <span class="showcase-label">Hero: split — Premium</span>
+      <Hero variant="split" hero={premium.sections.hero} photo={premium.doctor.photo} whatsapp={premium.meta.whatsapp} />
+    </div>
+  </div>
+
+  <div data-theme="moderno">
+    <div class="showcase-section">
+      <span class="showcase-label">Hero: split-reverse — Moderno</span>
+      <Hero variant="split-reverse" hero={moderno.sections.hero} photo={moderno.doctor.photo} whatsapp={moderno.meta.whatsapp} />
+    </div>
+  </div>
+
+  <div data-theme="clean">
+    <div class="showcase-section">
+      <span class="showcase-label">Hero: centered — Clean</span>
+      <Hero variant="centered" hero={clean.sections.hero} photo={clean.doctor.photo} whatsapp={clean.meta.whatsapp} />
+    </div>
+  </div>
+
+  <div data-theme="acolhedor">
+    <div class="showcase-section">
+      <span class="showcase-label">Hero: fullimage — Acolhedor</span>
+      <Hero variant="fullimage" hero={acolhedor.sections.hero} photo={acolhedor.doctor.photo} whatsapp={acolhedor.meta.whatsapp} />
+    </div>
+  </div>
+
+  <!-- ==================== SOBRE ==================== -->
+  <h2 class="section-heading" id="sobre">Sobre o Médico</h2>
+  <p class="section-desc">4 variantes de layout para apresentar o profissional.</p>
+
+  <div data-theme="premium">
+    <div class="showcase-section">
+      <span class="showcase-label">Sobre: split — Premium</span>
+      <Sobre variant="split" doctor={premium.doctor} photoOverride="/images/doctor-premium-sobre.jpg" />
+    </div>
+  </div>
+
+  <div data-theme="clean">
+    <div class="showcase-section">
+      <span class="showcase-label">Sobre: editorial — Clean</span>
+      <Sobre variant="editorial" doctor={clean.doctor} photoOverride="/images/doctor-clean-sobre.jpg" />
+    </div>
+  </div>
+
+  <div data-theme="acolhedor">
+    <div class="showcase-section">
+      <span class="showcase-label">Sobre: overlap — Acolhedor</span>
+      <Sobre variant="overlap" doctor={acolhedor.doctor} photoOverride="/images/doctor-acolhedor-sobre.jpg" />
+    </div>
+  </div>
+
+  <div data-theme="moderno">
+    <div class="showcase-section">
+      <span class="showcase-label">Sobre: side-by-side — Moderno</span>
+      <Sobre variant="side-by-side" doctor={moderno.doctor} photoOverride="/images/doctor-moderno-sobre.jpg" />
+    </div>
+  </div>
+
+  <div data-theme="premium">
+    <div class="showcase-section">
+      <span class="showcase-label">Sobre: dark-split — Premium</span>
+      <Sobre variant="dark-split" doctor={premium.doctor} photoOverride="/images/doctor-premium-sobre.jpg" />
+    </div>
+  </div>
+
+  <!-- ==================== ESPECIALIDADES ==================== -->
+  <h2 class="section-heading" id="especialidades">Especialidades (Cards de Serviço)</h2>
+  <p class="section-desc">6 variantes de layout para cards de serviço/especialidade.</p>
+
+  <div data-theme="premium">
+    <div class="showcase-section">
+      <span class="showcase-label">Especialidades: bordered — Premium</span>
+      <Especialidades variant="bordered" especialidades={premium.sections.especialidades} />
+    </div>
+  </div>
+
+  <div data-theme="clean">
+    <div class="showcase-section">
+      <span class="showcase-label">Especialidades: minimal — Clean</span>
+      <Especialidades variant="minimal" especialidades={clean.sections.especialidades} />
+    </div>
+  </div>
+
+  <div data-theme="acolhedor">
+    <div class="showcase-section">
+      <span class="showcase-label">Especialidades: image-top — Acolhedor</span>
+      <Especialidades variant="image-top" especialidades={acolhedor.sections.especialidades} />
+    </div>
+  </div>
+
+  <div data-theme="moderno">
+    <div class="showcase-section">
+      <span class="showcase-label">Especialidades: gradient — Moderno</span>
+      <Especialidades variant="gradient" especialidades={moderno.sections.especialidades} />
+    </div>
+  </div>
+
+  <div data-theme="institucional">
+    <div class="showcase-section">
+      <span class="showcase-label">Especialidades: icon-left — Institucional</span>
+      <Especialidades variant="icon-left" especialidades={institucional.sections.especialidades} />
+    </div>
+  </div>
+
+  <!-- ==================== SINAIS ==================== -->
+  <h2 class="section-heading" id="sinais">Sinais / Procedimentos</h2>
+  <p class="section-desc">5 variantes de cards para procedimentos e tratamentos.</p>
+
+  <div data-theme="premium">
+    <div class="showcase-section">
+      <span class="showcase-label">Sinais: border-left — Premium</span>
+      <Sinais variant="border-left" sinais={premium.sections.sinais} />
+    </div>
+  </div>
+
+  <div data-theme="clean">
+    <div class="showcase-section">
+      <span class="showcase-label">Sinais: minimal — Clean</span>
+      <Sinais variant="minimal" sinais={clean.sections.sinais} />
+    </div>
+  </div>
+
+  <div data-theme="acolhedor">
+    <div class="showcase-section">
+      <span class="showcase-label">Sinais: bordered — Acolhedor</span>
+      <Sinais variant="bordered" sinais={acolhedor.sections.sinais} />
+    </div>
+  </div>
+
+  <div data-theme="moderno">
+    <div class="showcase-section">
+      <span class="showcase-label">Sinais: gradient — Moderno</span>
+      <Sinais variant="gradient" sinais={moderno.sections.sinais} />
+    </div>
+  </div>
+
+  <div data-theme="institucional">
+    <div class="showcase-section">
+      <span class="showcase-label">Sinais: icon-left — Institucional</span>
+      <Sinais variant="icon-left" sinais={institucional.sections.sinais} />
+    </div>
+  </div>
+
+  <div data-theme="acolhedor">
+    <div class="showcase-section">
+      <span class="showcase-label">Sinais: clustered — Acolhedor</span>
+      <Sinais variant="clustered" sinais={acolhedor.sections.sinais} />
+    </div>
+  </div>
+
+  <!-- ==================== DIFERENCIAIS ==================== -->
+  <h2 class="section-heading" id="diferenciais">Diferenciais</h2>
+  <p class="section-desc">4 variantes de layout para diferenciais.</p>
+
+  <div data-theme="premium">
+    <div class="showcase-section">
+      <span class="showcase-label">Diferenciais: icon-left — Premium</span>
+      <Diferenciais variant="icon-left" diferenciais={premium.sections.diferenciais} />
+    </div>
+  </div>
+
+  <div data-theme="clean">
+    <div class="showcase-section">
+      <span class="showcase-label">Diferenciais: checkmark — Clean</span>
+      <Diferenciais variant="checkmark" diferenciais={clean.sections.diferenciais} />
+    </div>
+  </div>
+
+  <div data-theme="acolhedor">
+    <div class="showcase-section">
+      <span class="showcase-label">Diferenciais: centered — Acolhedor</span>
+      <Diferenciais variant="centered" diferenciais={acolhedor.sections.diferenciais} />
+    </div>
+  </div>
+
+  <div data-theme="moderno">
+    <div class="showcase-section">
+      <span class="showcase-label">Diferenciais: numbered — Moderno</span>
+      <Diferenciais variant="numbered" diferenciais={moderno.sections.diferenciais} />
+    </div>
+  </div>
+
+  <!-- ==================== COMO FUNCIONA ==================== -->
+  <h2 class="section-heading" id="como-funciona">Como Funciona</h2>
+  <p class="section-desc">4 variantes para passo a passo do atendimento.</p>
+
+  <div data-theme="premium">
+    <div class="showcase-section">
+      <span class="showcase-label">ComoFunciona: numbered-list — Premium</span>
+      <ComoFunciona variant="numbered-list" comoFunciona={premium.sections.comoFunciona} />
+    </div>
+  </div>
+
+  <div data-theme="acolhedor">
+    <div class="showcase-section">
+      <span class="showcase-label">ComoFunciona: timeline — Acolhedor</span>
+      <ComoFunciona variant="timeline" comoFunciona={acolhedor.sections.comoFunciona} />
+    </div>
+  </div>
+
+  <div data-theme="moderno">
+    <div class="showcase-section">
+      <span class="showcase-label">ComoFunciona: horizontal — Moderno</span>
+      <ComoFunciona variant="horizontal" comoFunciona={moderno.sections.comoFunciona} />
+    </div>
+  </div>
+
+  <div data-theme="institucional">
+    <div class="showcase-section">
+      <span class="showcase-label">ComoFunciona: cards — Institucional</span>
+      <ComoFunciona variant="cards" comoFunciona={institucional.sections.comoFunciona} />
+    </div>
+  </div>
+
+  <div data-theme="moderno">
+    <div class="showcase-section">
+      <span class="showcase-label">ComoFunciona: header-cards — Moderno</span>
+      <ComoFunciona variant="header-cards" comoFunciona={moderno.sections.comoFunciona} />
+    </div>
+  </div>
+
+  <!-- ==================== DEPOIMENTOS ==================== -->
+  <h2 class="section-heading" id="depoimentos">Depoimentos</h2>
+  <p class="section-desc">5 variantes para exibir depoimentos de pacientes.</p>
+
+  <div data-theme="premium">
+    <div class="showcase-section">
+      <span class="showcase-label">Depoimentos: grid — Premium</span>
+      <Depoimentos variant="grid" depoimentos={premium.sections.depoimentos} />
+    </div>
+  </div>
+
+  <div data-theme="clean">
+    <div class="showcase-section">
+      <span class="showcase-label">Depoimentos: highlight — Clean</span>
+      <Depoimentos variant="highlight" depoimentos={clean.sections.depoimentos} />
+    </div>
+  </div>
+
+  <div data-theme="acolhedor">
+    <div class="showcase-section">
+      <span class="showcase-label">Depoimentos: editorial — Acolhedor</span>
+      <Depoimentos variant="editorial" depoimentos={acolhedor.sections.depoimentos} />
+    </div>
+  </div>
+
+  <div data-theme="moderno">
+    <div class="showcase-section">
+      <span class="showcase-label">Depoimentos: carousel — Moderno</span>
+      <Depoimentos variant="carousel" depoimentos={moderno.sections.depoimentos} />
+    </div>
+  </div>
+
+  <div data-theme="institucional">
+    <div class="showcase-section">
+      <span class="showcase-label">Depoimentos: stack — Institucional</span>
+      <Depoimentos variant="stack" depoimentos={institucional.sections.depoimentos} />
+    </div>
+  </div>
+
+  <!-- ==================== FAQ ==================== -->
+  <h2 class="section-heading" id="faq">FAQ</h2>
+  <p class="section-desc">3 variantes de perguntas frequentes.</p>
+
+  <div data-theme="premium">
+    <div class="showcase-section">
+      <span class="showcase-label">FAQ: accordion — Premium</span>
+      <FAQ variant="accordion" faq={premium.sections.faq} />
+    </div>
+  </div>
+
+  <div data-theme="acolhedor">
+    <div class="showcase-section">
+      <span class="showcase-label">FAQ: simple — Acolhedor</span>
+      <FAQ variant="simple" faq={acolhedor.sections.faq} />
+    </div>
+  </div>
+
+  <div data-theme="clean">
+    <div class="showcase-section">
+      <span class="showcase-label">FAQ: two-column — Clean</span>
+      <FAQ variant="two-column" faq={clean.sections.faq} />
+    </div>
+  </div>
+
+  <!-- ==================== CTA FINAL ==================== -->
+  <h2 class="section-heading" id="cta">CTA Final</h2>
+  <p class="section-desc">5 variantes de call-to-action final.</p>
+
+  <div data-theme="premium">
+    <div class="showcase-section">
+      <span class="showcase-label">CTA: solid-bg — Premium</span>
+      <CTAFinal variant="solid-bg" ctaFinal={premium.sections.ctaFinal} whatsapp={premium.meta.whatsapp} />
+    </div>
+  </div>
+
+  <div data-theme="clean">
+    <div class="showcase-section">
+      <span class="showcase-label">CTA: minimal — Clean</span>
+      <CTAFinal variant="minimal" ctaFinal={clean.sections.ctaFinal} whatsapp={clean.meta.whatsapp} />
+    </div>
+  </div>
+
+  <div data-theme="moderno">
+    <div class="showcase-section">
+      <span class="showcase-label">CTA: gradient-bg — Moderno</span>
+      <CTAFinal variant="gradient-bg" ctaFinal={moderno.sections.ctaFinal} whatsapp={moderno.meta.whatsapp} />
+    </div>
+  </div>
+
+  <div data-theme="acolhedor">
+    <div class="showcase-section">
+      <span class="showcase-label">CTA: image-bg — Acolhedor</span>
+      <CTAFinal variant="image-bg" ctaFinal={acolhedor.sections.ctaFinal} whatsapp={acolhedor.meta.whatsapp} />
+    </div>
+  </div>
+
+  <div data-theme="institucional">
+    <div class="showcase-section">
+      <span class="showcase-label">CTA: split-cta — Institucional</span>
+      <CTAFinal variant="split-cta" ctaFinal={institucional.sections.ctaFinal} whatsapp={institucional.meta.whatsapp} />
+    </div>
+  </div>
+
+  <!-- ==================== FOOTERS ==================== -->
+  <h2 class="section-heading" id="footers">Footer</h2>
+  <p class="section-desc">3 variantes de rodapé.</p>
+
+  <div data-theme="premium">
+    <div class="showcase-section">
+      <span class="showcase-label">Footer: minimal — Premium</span>
+      <Footer variant="minimal" footer={premium.sections.footer} doctor={premium.doctor} instagram={premium.meta.instagram} email={premium.meta.email} />
+    </div>
+  </div>
+
+  <div data-theme="acolhedor">
+    <div class="showcase-section">
+      <span class="showcase-label">Footer: split — Acolhedor</span>
+      <Footer variant="split" footer={acolhedor.sections.footer} doctor={acolhedor.doctor} instagram={acolhedor.meta.instagram} email={acolhedor.meta.email} />
+    </div>
+  </div>
+
+  <div data-theme="institucional">
+    <div class="showcase-section">
+      <span class="showcase-label">Footer: columns — Institucional</span>
+      <Footer variant="columns" footer={institucional.sections.footer} doctor={institucional.doctor} instagram={institucional.meta.instagram} email={institucional.meta.email} />
+    </div>
+  </div>
+
+  <!-- ==================== VIDEOS ==================== -->
+  <h2 class="section-heading" id="videos">Vídeos / Reels</h2>
+  <p class="section-desc">2 variantes para exibir conteúdo de redes sociais.</p>
+
+  <div data-theme="clean">
+    <div class="showcase-section">
+      <span class="showcase-label">Videos: grid — Clean</span>
+      {clean.sections.videos && <Videos variant="grid" videos={clean.sections.videos} instagram={clean.meta.instagram} />}
+    </div>
+  </div>
+
+  <div data-theme="moderno">
+    <div class="showcase-section">
+      <span class="showcase-label">Videos: scroll — Moderno</span>
+      {moderno.sections.videos && <Videos variant="scroll" videos={moderno.sections.videos} instagram={moderno.meta.instagram} />}
+    </div>
+  </div>
+
+  <!-- ==================== ÍCONES ==================== -->
+  <h2 class="section-heading" id="icons">Biblioteca de Ícones</h2>
+  <p class="section-desc">{allIcons.length} ícones mapeados no sistema. Todos do Lucide Icons.</p>
+
+  <div class="icon-grid">
+    {allIcons.map((name) => (
+      <div class="icon-card">
+        <Icon name={name} class="w-7 h-7" />
+        <span>{name}</span>
+      </div>
+    ))}
+  </div>
+
+  <div style="height: 100px;"></div>
+
+  <script>
+    // Scroll reveal observer (same as Layout.astro)
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger").forEach((el) => observer.observe(el));
+
+    // Counter animation
+    const counters = document.querySelectorAll('[data-counter]');
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = parseInt(el.getAttribute('data-counter') || '0');
+        const prefix = el.getAttribute('data-prefix') || '';
+        const suffix = el.getAttribute('data-suffix') || '';
+        let current = 0;
+        const step = Math.ceil(target / 40);
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = prefix + current + suffix;
+          if (current >= target) clearInterval(timer);
+        }, 30);
+        counterObs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(el => counterObs.observe(el));
+  </script>
+
+</body>
+</html>

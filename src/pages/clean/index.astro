@@ -1,0 +1,51 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/sections/Header.astro";
+import Hero from "../../components/sections/Hero.astro";
+import Sobre from "../../components/sections/Sobre.astro";
+import Sinais from "../../components/sections/Sinais.astro";
+import Diferenciais from "../../components/sections/Diferenciais.astro";
+import ComoFunciona from "../../components/sections/ComoFunciona.astro";
+import Depoimentos from "../../components/sections/Depoimentos.astro";
+import Localizacao from "../../components/sections/Localizacao.astro";
+import FAQ from "../../components/sections/FAQ.astro";
+import CTAFinal from "../../components/sections/CTAFinal.astro";
+import Footer from "../../components/sections/Footer.astro";
+import Videos from "../../components/sections/Videos.astro";
+import WhatsAppButton from "../../components/sections/WhatsAppButton.astro";
+
+import persona from "../../data/personas/clean.json";
+import type { Persona } from "../../data/types";
+
+const data = persona as Persona;
+const s = data.sections;
+---
+
+<Layout persona={data}>
+  <Header
+    doctorName={data.doctor.displayName}
+    whatsapp={data.meta.whatsapp}
+  />
+
+  <main id="main-content">
+    <Hero variant="centered" hero={s.hero} photo="/images/clean_consultorio-derma.jpg" whatsapp={data.meta.whatsapp} />
+    <Sobre variant="split" doctor={data.doctor} photoOverride="/images/doctor-clean-sobre.jpg" />
+    <Sinais variant="image-card" sinais={s.sinais} />
+    <Diferenciais variant="checkmark" diferenciais={s.diferenciais} />
+    <ComoFunciona comoFunciona={s.comoFunciona} />
+    <Depoimentos variant="highlight" depoimentos={s.depoimentos} />
+    <Localizacao localizacao={s.localizacao} />
+    <FAQ faq={s.faq} />
+    {s.videos && <Videos videos={s.videos} instagram={data.meta.instagram} />}
+    <CTAFinal variant="minimal" ctaFinal={s.ctaFinal} whatsapp={data.meta.whatsapp} />
+  </main>
+
+  <Footer
+    footer={s.footer}
+    doctor={data.doctor}
+    instagram={data.meta.instagram}
+    email={data.meta.email}
+  />
+
+  <WhatsAppButton whatsapp={data.meta.whatsapp} />
+</Layout>

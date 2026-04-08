@@ -1,0 +1,103 @@
+---
+import type { Persona } from "../../data/types";
+import Icon from "../ui/Icon.astro";
+
+interface Props {
+  especialidades: Persona["sections"]["especialidades"];
+  variant?: "bordered" | "minimal" | "image-top" | "icon-left" | "gradient";
+  bgColor?: "default" | "alt";
+}
+
+const { especialidades, variant = "bordered", bgColor = "default" } = Astro.props;
+const sectionBg = bgColor === "alt" ? "bg-[var(--color-bg-alt)]" : "bg-[var(--color-bg)]";
+---
+
+<section class:list={["py-20 md:py-28", sectionBg]} id="especialidades">
+  <div class="mx-auto px-6 max-w-4xl text-center mb-12">
+    <p class="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-4">Especialidades</p>
+    <h2 class="font-[var(--font-heading)] text-3xl md:text-4xl font-semibold text-[var(--color-text-heading)]">{especialidades.sectionTitle}</h2>
+  </div>
+
+  {/* ===== BORDERED (Premium) ===== */}
+  {variant === "bordered" && (
+    <div class="mx-auto px-6 max-w-6xl grid sm:grid-cols-2 gap-6 stagger">
+      {especialidades.items.map((item) => (
+        <div class="bg-[var(--color-surface)] border border-[var(--color-border)] p-8 card-lift" style="border-radius: var(--radius-lg)">
+          <Icon name={item.icon} class="w-8 h-8 text-[var(--color-accent)] mb-4" />
+          <h3 class="font-[var(--font-heading)] text-xl font-semibold text-[var(--color-text-heading)] mb-2">{item.name}</h3>
+          <p class="text-[var(--color-muted)] leading-relaxed">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {/* ===== MINIMAL (Clean) — sem borda, sem fundo, linha divisória ===== */}
+  {variant === "minimal" && (
+    <div class="mx-auto px-6 max-w-4xl stagger">
+      {especialidades.items.map((item, i) => (
+        <div class:list={[
+          "flex items-start gap-6 py-8",
+          i < especialidades.items.length - 1 && "border-b border-[var(--color-border)]"
+        ]}>
+          <Icon name={item.icon} class="w-6 h-6 text-[var(--color-accent)] mt-1 shrink-0" />
+          <div>
+            <h3 class="font-semibold text-lg text-[var(--color-text-heading)] mb-1">{item.name}</h3>
+            <p class="text-[var(--color-muted)] leading-relaxed">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {/* ===== ICON-LEFT (Institucional) — cards horizontais com ícone grande ===== */}
+  {variant === "icon-left" && (
+    <div class="mx-auto px-6 max-w-6xl grid sm:grid-cols-2 gap-6 stagger">
+      {especialidades.items.map((item) => (
+        <div class="flex gap-5 p-6 bg-[var(--color-surface)] border border-[var(--color-border)] card-lift" style="border-radius: var(--radius-lg)">
+          <div class="w-12 h-12 shrink-0 flex items-center justify-center bg-[var(--color-accent)]/10" style="border-radius: var(--radius-lg)">
+            <Icon name={item.icon} class="w-6 h-6 text-[var(--color-accent)]" />
+          </div>
+          <div>
+            <h3 class="font-semibold text-[var(--color-text-heading)] mb-1">{item.name}</h3>
+            <p class="text-sm text-[var(--color-muted)] leading-relaxed">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {/* ===== IMAGE-TOP (Acolhedor) — cards com imagem placeholder no topo ===== */}
+  {variant === "image-top" && (
+    <div class="mx-auto px-6 max-w-6xl grid sm:grid-cols-2 gap-6 stagger">
+      {especialidades.items.map((item) => (
+        <div class="bg-[var(--color-surface)] overflow-hidden card-lift" style="border-radius: var(--radius-lg)">
+          <div class="h-40 bg-[var(--color-accent)]/10 flex items-center justify-center">
+            <Icon name={item.icon} class="w-12 h-12 text-[var(--color-accent)]/60" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-[var(--font-heading)] text-xl font-semibold text-[var(--color-text-heading)] mb-2">{item.name}</h3>
+            <p class="text-[var(--color-muted)] leading-relaxed">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {/* ===== GRADIENT (Moderno — cards com gradiente e ícone em bloco) ===== */}
+  {variant === "gradient" && (
+    <div class="mx-auto px-6 max-w-6xl grid sm:grid-cols-2 gap-6 stagger">
+      {especialidades.items.map((item) => (
+        <div
+          class="p-8 border border-[var(--color-border)] hover:shadow-lg transition-shadow card-lift"
+          style="background: linear-gradient(to bottom right, var(--color-surface), var(--color-bg-alt)); border-radius: var(--radius-lg);"
+        >
+          <div class="w-12 h-12 flex items-center justify-center bg-[var(--color-accent)]/15 mb-5" style="border-radius: var(--radius-lg)">
+            <Icon name={item.icon} class="w-6 h-6 text-[var(--color-accent)]" />
+          </div>
+          <h3 class="font-[var(--font-heading)] text-xl font-semibold text-[var(--color-text-heading)] mb-2">{item.name}</h3>
+          <p class="text-[var(--color-muted)] leading-relaxed">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  )}
+</section>

@@ -1,0 +1,190 @@
+{
+  "meta": {
+    "theme": "institucional",
+    "title": "Clínica Vida Saúde — Centro Médico Multidisciplinar",
+    "description": "Centro médico multidisciplinar em Belo Horizonte. Mais de 15 especialidades, exames e procedimentos em um só lugar. Clínica Vida Saúde.",
+    "whatsapp": "",
+    "instagram": "@clinicavidasaudebh",
+    "email": "contato@clinicavidasaude.com.br"
+  },
+  "doctor": {
+    "displayName": "Clínica Vida Saúde",
+    "crm": "CNES 9876543",
+    "specialty": "Centro Médico Multidisciplinar",
+    "city": "Belo Horizonte",
+    "address": "Av. do Contorno, 4.520 - 3º andar, Funcionários, Belo Horizonte - MG",
+    "about": {
+      "formation": "Fundada em 2008, a Clínica Vida Saúde reúne profissionais com formação nas melhores universidades do país e títulos de especialização reconhecidos.",
+      "trajectory": "Há 18 anos oferecendo atendimento médico de excelência em Belo Horizonte. Mais de 15 especialidades, centro de diagnóstico próprio e equipe multidisciplinar integrada.",
+      "experience": "18 anos",
+      "patientsServed": "Mais de 50.000"
+    },
+    "differentials": [
+      "Mais de 15 especialidades médicas em um só endereço",
+      "Centro de diagnóstico próprio com resultados em 24h",
+      "Prontuário eletrônico integrado entre especialidades",
+      "Equipe multidisciplinar com discussão de casos complexos"
+    ],
+    "photo": "/images/doctor-institucional.jpg"
+  },
+  "sections": {
+    "order": [
+      "header", "hero", "estrutura", "equipe", "especialidades",
+      "diferenciais", "comoFunciona", "depoimentos", "localizacao",
+      "faq", "ctaFinal", "footer"
+    ],
+    "hero": {
+      "badge": "Centro Médico · CNES 9876543",
+      "headline": "Todas as especialidades em",
+      "highlightWord": "um só lugar",
+      "subheadline": "Centro médico completo com mais de 15 especialidades, diagnóstico próprio e equipe integrada. Seu cuidado com saúde simplificado.",
+      "ctaText": "Agendar Consulta",
+      "secondaryCta": { "text": "Nossas especialidades", "href": "#especialidades" },
+      "stats": [
+        { "value": "15+", "label": "Especialidades" },
+        { "value": "50.000+", "label": "Pacientes Atendidos" },
+        { "value": "18", "label": "Anos de Atuação" }
+      ]
+    },
+    "estrutura": {
+      "sectionTitle": "Nossa Estrutura",
+      "sectionSubtitle": "Tecnologia e conforto a serviço da sua saúde",
+      "items": [
+        { "image": "/images/institucional-recepcao.jpg", "title": "Recepção", "description": "Ambiente moderno e acolhedor para pacientes e acompanhantes" },
+        { "image": "/images/institucional-laboratorio.jpg", "title": "Centro Diagnóstico", "description": "Exames laboratoriais e de imagem com resultados em 24h" },
+        { "image": "/images/institucional-consultorio.jpg", "title": "Consultórios", "description": "12 salas equipadas com tecnologia de ponta" }
+      ]
+    },
+    "equipe": {
+      "sectionTitle": "Nossa Equipe",
+      "sectionSubtitle": "Profissionais com formação nas melhores instituições do país",
+      "members": [
+        {
+          "name": "Dr. Marcos Oliveira",
+          "crm": "CRM/MG 62.341",
+          "specialty": "Cardiologia",
+          "photo": "/images/institucional-dr-marcos.jpg",
+          "tags": ["20 anos exp.", "Ecocardiografia"],
+          "description": "Especialista em diagnóstico cardiovascular e prevenção."
+        },
+        {
+          "name": "Dra. Fernanda Lima",
+          "crm": "CRM/MG 54.210",
+          "specialty": "Neurologia",
+          "photo": "/images/institucional-dra-fernanda.jpg",
+          "tags": ["15 anos exp.", "Cefaleia"],
+          "description": "Referência em tratamento de enxaqueca e doenças neurodegenerativas."
+        },
+        {
+          "name": "Dr. Rafael Costa",
+          "crm": "CRM/MG 48.879",
+          "specialty": "Ortopedia",
+          "photo": "/images/institucional-dr-rafael.jpg",
+          "tags": ["12 anos exp.", "Coluna"],
+          "description": "Cirurgião de coluna com abordagem minimamente invasiva."
+        },
+        {
+          "name": "Dra. Juliana Mendes",
+          "crm": "CRM/MG 59.102",
+          "specialty": "Endocrinologia",
+          "photo": "/images/institucional-dra-juliana.jpg",
+          "tags": ["10 anos exp.", "Tireoide"],
+          "description": "Especialista em diabetes, tireoide e distúrbios hormonais."
+        },
+        {
+          "name": "Dr. André Bastos",
+          "crm": "CRM/MG 61.445",
+          "specialty": "Pediatria",
+          "photo": "/images/institucional-dr-andre.jpg",
+          "tags": ["18 anos exp.", "Neonatologia"],
+          "description": "Pediatra com foco em desenvolvimento infantil e vacinação."
+        }
+      ]
+    },
+    "sinais": {
+      "sectionTitle": "Serviços em Destaque",
+      "sectionSubtitle": "Cuidado completo sob o mesmo teto — da consulta ao diagnóstico, do tratamento ao acompanhamento.",
+      "items": [
+        { "icon": "checkup", "title": "Check-up executivo", "description": "Avaliação completa com exames laboratoriais, imagem e parecer de especialistas em um único dia." },
+        { "icon": "cardiology", "title": "Cardiologia", "description": "Consulta, eletrocardiograma, ecocardiograma e teste ergométrico com laudos no mesmo dia." },
+        { "icon": "orthopedics", "title": "Ortopedia", "description": "Diagnóstico e tratamento de lesões musculoesqueléticas com reabilitação integrada." },
+        { "icon": "pediatrics", "title": "Pediatria", "description": "Acompanhamento do desenvolvimento infantil com vacinação e orientação nutricional." },
+        { "icon": "endocrinology", "title": "Endocrinologia", "description": "Tratamento de diabetes, tireoide, obesidade e distúrbios hormonais." },
+        { "icon": "lab", "title": "Centro de diagnóstico", "description": "Laboratório próprio com exames de sangue, imagem e diagnóstico por imagem." }
+      ]
+    },
+    "especialidades": {
+      "sectionTitle": "Nossas Especialidades",
+      "items": [
+        { "icon": "stethoscope", "name": "Clínica Médica", "description": "Avaliação geral, acompanhamento de doenças crônicas e check-up." },
+        { "icon": "cardiology", "name": "Cardiologia", "description": "Prevenção e tratamento de doenças cardiovasculares." },
+        { "icon": "orthopedics", "name": "Ortopedia", "description": "Tratamento de coluna, articulações, traumas e reabilitação." },
+        { "icon": "neurology", "name": "Neurologia", "description": "Diagnóstico de cefaleia, epilepsia, AVC e doenças neurodegenerativas." },
+        { "icon": "endocrinology", "name": "Endocrinologia", "description": "Tratamento de diabetes, tireoide e distúrbios hormonais." },
+        { "icon": "pediatrics", "name": "Pediatria", "description": "Acompanhamento do desenvolvimento infantil e vacinação." }
+      ]
+    },
+    "diferenciais": {
+      "sectionTitle": "Por que escolher a Clínica Vida Saúde",
+      "items": [
+        { "icon": "users", "title": "Equipe multidisciplinar", "description": "Especialistas que conversam entre si para um cuidado integrado." },
+        { "icon": "microscope", "title": "Diagnóstico próprio", "description": "Exames laboratoriais e de imagem com resultados em até 24 horas." },
+        { "icon": "clipboard", "title": "Prontuário integrado", "description": "Seu histórico completo acessível por todos os especialistas da clínica." },
+        { "icon": "clock", "title": "Agendamento centralizado", "description": "Um único contato para agendar qualquer especialidade." }
+      ]
+    },
+    "comoFunciona": {
+      "sectionTitle": "Como funciona o atendimento",
+      "steps": [
+        { "number": "01", "title": "Agendamento", "description": "Ligue ou mande mensagem. Nossa central agenda a especialidade que você precisa no melhor horário." },
+        { "number": "02", "title": "Consulta", "description": "Atendimento pontual com o especialista. Prontuário eletrônico com todo seu histórico disponível." },
+        { "number": "03", "title": "Exames", "description": "Se necessário, realize exames no nosso centro de diagnóstico, no mesmo andar." },
+        { "number": "04", "title": "Acompanhamento", "description": "Retorno com resultados e plano de tratamento. Se precisar de outro especialista, encaminhamos internamente." }
+      ]
+    },
+    "depoimentos": {
+      "sectionTitle": "O que dizem nossos pacientes",
+      "items": [
+        { "name": "Ricardo M.", "text": "A praticidade de ter várias especialidades e exames no mesmo lugar é imbatível. Fiz check-up completo em uma manhã. Organização impecável.", "rating": 5 },
+        { "name": "Ana Paula S.", "text": "Levo minha família inteira na Clínica Vida. Pediatra, cardiologista, dermato — tudo no mesmo lugar. Os médicos são excelentes e atenciosos.", "rating": 5 },
+        { "name": "José Carlos F.", "text": "Depois de um susto cardíaco, fiz todos os exames no mesmo dia. Eletro, eco, sangue. No dia seguinte já tinha os resultados e o plano de tratamento.", "rating": 5 },
+        { "name": "Mariana L.", "text": "O prontuário integrado faz diferença. Quando o endócrino me encaminhou pro cardiologista, ele já sabia todo meu histórico. Sem repetir exame, sem perder tempo.", "rating": 5 }
+      ]
+    },
+    "localizacao": {
+      "sectionTitle": "Localização",
+      "address": "Av. do Contorno, 4.520 - 3º andar, Funcionários, Belo Horizonte - MG",
+      "mapQuery": "Av+do+Contorno+4520+Funcionarios+Belo+Horizonte+MG",
+      "details": [
+        "Estacionamento conveniado no prédio",
+        "Próximo à estação de metrô Funcionários",
+        "Acessibilidade completa — elevador e rampas"
+      ]
+    },
+    "faq": {
+      "sectionTitle": "Perguntas Frequentes",
+      "items": [
+        { "question": "Quais especialidades vocês atendem?", "answer": "Temos mais de 15 especialidades: clínica médica, cardiologia, ortopedia, neurologia, endocrinologia, dermatologia, ginecologia, urologia, oftalmologia, otorrino, pediatria, psiquiatria, nutrição, fisioterapia e mais." },
+        { "question": "Aceitam convênio?", "answer": "Atendemos os principais convênios de Belo Horizonte: Unimed, Bradesco Saúde, SulAmérica, Amil e outros. Consulte na central de agendamento." },
+        { "question": "Fazem exames no local?", "answer": "Sim, temos centro de diagnóstico próprio com laboratório de análises clínicas e exames de imagem. Resultados disponíveis em até 24 horas." },
+        { "question": "Preciso de encaminhamento?", "answer": "Não. Você pode agendar diretamente com qualquer especialista. Se durante a consulta for identificada necessidade de outra especialidade, fazemos o encaminhamento interno." },
+        { "question": "Qual o horário de funcionamento?", "answer": "Segunda a sexta, das 7h às 20h. Sábados, das 7h às 13h. Nosso centro de diagnóstico funciona nos mesmos horários." },
+        { "question": "Atendem emergência?", "answer": "Não somos pronto-socorro, mas temos agenda de encaixe para urgências das especialidades atendidas. Ligue para nossa central para orientação." }
+      ]
+    },
+    "ctaFinal": {
+      "headline": "Agende sua consulta com facilidade",
+      "subheadline": "Central de agendamento unificada. Escolha a especialidade, o profissional e o horário que melhor funciona para você.",
+      "ctaText": "Agendar pelo WhatsApp"
+    },
+    "footer": {
+      "copyright": "Clínica Vida Saúde — CNES 9876543. Responsável Técnico: Dr. Marcos Oliveira, CRM/MG 62.341.",
+      "links": [
+        { "text": "Sobre", "href": "#sobre" },
+        { "text": "Especialidades", "href": "#especialidades" },
+        { "text": "Convênios", "href": "#faq" },
+        { "text": "Contato", "href": "#contato" }
+      ]
+    }
+  }
+}
